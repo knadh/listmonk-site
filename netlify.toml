@@ -1,0 +1,30 @@
+[build]
+publish = "site/publish"
+command = "hugo -s site -d publish --gc --minify && mkdocs build -f docs/mkdocs.yml -d ../site/publish/docs"
+
+[context.production.environment]
+HUGO_VERSION = "0.55.0"
+HUGO_ENV = "production"
+HUGO_ENABLEGITINFO = "true"
+
+[context.split1]
+command = "hugo -s site -d publish --gc --minify --enableGitInfo"
+
+[context.split1.environment]
+HUGO_VERSION = "0.55.0"
+HUGO_ENV = "production"
+
+[context.deploy-preview]
+command = "hugo -s site -d publish --gc --minify --buildFuture -b $DEPLOY_PRIME_URL"
+
+[context.deploy-preview.environment]
+HUGO_VERSION = "0.55.0"
+
+[context.branch-deploy]
+command = "hugo -s site -d publish --gc --minify -b $DEPLOY_PRIME_URL"
+
+[context.branch-deploy.environment]
+HUGO_VERSION = "0.55.0"
+
+[context.next.environment]
+HUGO_ENABLEGITINFO = "true"

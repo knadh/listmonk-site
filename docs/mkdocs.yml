@@ -1,0 +1,31 @@
+site_name: listmonk / Documentation
+theme:
+  name: "material"
+  logo: "images/favicon.png"
+  favicon: "images/favicon.png"
+
+  palette:
+    primary: "white"
+    accent: "red"
+
+site_dir: _out
+
+markdown_extensions:
+  - admonition
+  - codehilite
+  - toc:
+      permalink: true
+
+extra_css:
+  - "static/style.css"
+
+copyright: "Copyright &copy; 2019, Kailash Nadh."
+
+pages:
+  - "Introduction": index.md
+  - "Concepts": concepts.md
+  - "Querying and segmenting subscribers": querying-and-segmentation.md
+  - "Templating": templating.md
+  - "Integrating with external systems": external-integration.md
+  - "API": apis/apis.md
+  - "API / Subscribers": apis/subscribers.md
