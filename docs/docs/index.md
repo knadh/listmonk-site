@@ -18,6 +18,10 @@ listmonk is a self-hosted, full fledged, high performance mailing list and newsl
 - Visit `http://localhost:9000`.
 - Since there is no user auth yet, it's best to put listmonk behind a proxy like Nginx and setup basicauth on all endpoints except for the few endpoints that need to be public. Here is a [sample nginx config](https://github.com/knadh/listmonk/wiki/Production-Nginx-config) for production use.
 
+### Running on docker
+
+[Read this](https://github.com/knadh/listmonk#running-on-docker) to run listmonk on a Docker container.
+
 ## Developers
 
 listmonk is free, open source software licensed under AGPLv3. There are a few of essential features such as user auth/management and bounce tracking that are currently missing. Contributions are welcome.
