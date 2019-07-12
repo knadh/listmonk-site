@@ -6,18 +6,25 @@ A subscriber is a recipient identified by an e-mail address and name. Subscriber
 
 ### Attributes
 
-Attributes are arbitrary properties attached to a subscriber in addition to their e-mail and name. They are represented as a JSON map. It is not necessary for all subscribers to have the same attributes. Subscribers can be queried and segmented into lists based on their attributes, and the attributes can be inserted into the e-mails sent to them. For example:
+Attributes are arbitrary properties attached to a subscriber in addition to their e-mail and name. They are represented as a JSON map. It is not necessary for all subscribers to have the same attributes. Subscribers can be [queried and segmented](../querying-and-segmentation) into lists based on their attributes, and the attributes can be inserted into the e-mails sent to them. For example:
 
 ```json
 {
-  "location": "Bengaluru",
-  "likes_tea": true
+  "city": "Bengaluru",
+  "likes_tea": true,
+  "spoken_languages": ["English", "Malayalam"],
+  "projects": 3,
+  "stack": {
+    "frameworks": ["echo", "go"],
+    "languages": ["go", "python"],
+    "preferred_language": "go"
+  }
 }
 ```
 
 ### Segmentation
 
-Segmentation is the process of filtering a large list of subscribers into a smaller group based on arbitrary conditions. For instance, if an e-mail needs to be sent subscribers who live in a particular city, given their city is described in their attributes, it's possible to quickly filter them out into a new list and e-mail them. [Learn more](../querying-and-segmentation).
+Segmentation is the process of filtering a large list of subscribers into a smaller group based on arbitrary conditions, primarily based on their attributes. For instance, if an e-mail needs to be sent subscribers who live in a particular city, given their city is described in their attributes, it's possible to quickly filter them out into a new list and e-mail them. [Learn more](../querying-and-segmentation).
 
 ## List
 
@@ -27,7 +34,7 @@ A list (or a _mailing list_) is a collection of subscribers grouped under a name
 
 Subscribers in a list will have one of these subscription statuses.
 
-| Status        | Descriptipn                                                                       |
+| Status        | Description                                                                       |
 | ------------- | --------------------------------------------------------------------------------- |
 | `unconfirmed` | The subscriber was added to the list directly without their explicit confirmation |
 | `confirmed`   | The subscriber added themselves to the list                                       |
