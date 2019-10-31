@@ -3,7 +3,7 @@
 | Method   | Endpoint                                                      | Description                                             |
 | -------- | ------------------------------------------------------------- | ------------------------------------------------------- |
 | `GET`    | /api/subscribers                                              | Get subscribers                                         |
-| `GET`    | /api/subscribers/:id                                          | Get a subscrier by ID                                   |
+| `GET`    | /api/subscribers/:id                                          | Get a subscriber by ID                                   |
 | `GET`    | /api/subscribers/lists/:id                                    | Get subscribers in a list by the list ID                |
 | `GET`    | [/api/subscribers/lists](#get-subscribers-in-lists)           | Get subscribers in one or more lists by the list IDs    |
 | `GET`    | [/api/subscribers](#query-subscribers-with-an-sql-expression) | Get subscribers filtered by an arbitrary SQL expression |
