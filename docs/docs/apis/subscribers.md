@@ -1,28 +1,179 @@
-# API / Subscribers
+# Subscribers Endpoint
+ Method   | Endpoint                                                              | Description                                             |
+ -------- | ----------------------------------------------------------------------| ---------------------------------
+ `GET`    | [/api/subscribers](#get-apisubscribers)                               | Get all subscribers                     
+ `GET`    | [/api/subscribers/:id](#get-apisubscribersid)                         | Get a single subscriber
+ `GET`    | /api/subscribers/lists/:id                                            | Get all subscribers in a list                
+ `GET`    | [/api/subscribers/list_id](#get-apisubscriberslist_id)                | Get subscribers in one or more list   
+ `GET`    | [/api/subscribers](#get-apisubscribers_1)                             | Get subscribers filtered by an arbitrary SQL expression 
+ `POST`   | [/api/subscribers](#post-apidubscribers)                              | Add a new subscriber                        
+ `PUT`    | /api/subscribers/:id                                                  | Update a subscriber by ID                    
+ `PUT`    | [/api/subscribers/:id/blacklist](#put-apisubscribersidblacklist)      | Blacklist a single subscriber               
+ `PUT`    | /api/subscribers/blacklist                                            | Blacklist one or more subscribers     
+ `PUT`    | [/api/subscribers/query/blacklist](#put-apisubscribersqueryblacklist) | Blacklist subscribers with an arbitrary SQL expression  
+ `DELETE` | [/api/subscribers/:id](#delete-apisubscribersid)                      | Delete a single subscriber                   
+ `DELETE` | [/api/subscribers](#delete-apisubscribers)                            | Delete one or more subscribers             
+ `POST` | [/api/subscribers/query/delete](#post-apisubscribersquerydelete)        | Delete subscribers with an arbitrary SQL expression     
 
-| Method   | Endpoint                                                      | Description                                             |
-| -------- | ------------------------------------------------------------- | ------------------------------------------------------- |
-| `GET`    | /api/subscribers                                              | Get subscribers                                         |
-| `GET`    | /api/subscribers/:id                                          | Get a subscrier by ID                                   |
-| `GET`    | /api/subscribers/lists/:id                                    | Get subscribers in a list by the list ID                |
-| `GET`    | [/api/subscribers/lists](#get-subscribers-in-lists)           | Get subscribers in one or more lists by the list IDs    |
-| `GET`    | [/api/subscribers](#query-subscribers-with-an-sql-expression) | Get subscribers filtered by an arbitrary SQL expression |
-| `POST`   | [/api/subscribers](#add-a-new-subscriber)                     | Add a new subscriber                                    |
-| `PUT`    | /api/subscribers/:id                                          | Update a subscriber by ID                               |
-| `PUT`    | /api/subscribers/:id/blacklist                                | Blacklist a single subscriber by ID                     |
-| `PUT`    | /api/subscribers/blacklist                                    | Blacklist one or more subscribers by their IDs          |
-| `PUT`    | /api/subscribers/query/blacklist                              | Blacklist subscribers with an arbitrary SQL expression  |
-| `DELETE` | /api/subscribers/:id                                          | Delete a single subscriber                              |
-| `DELETE` | /api/subscribers                                              | Delete one or more subscribers by their IDs             |
-| `DELETE` | /api/subscribers/query/delete                                 | Delete subscribers with an arbitrary SQL expression     |
 
-#### Get subscribers in lists
 
+
+#### **GET** /api/subscribers
+Get all subscribers 
+
+##### Example Request
+```shell
+curl 'http://localhost:9000/api/subscribers' 
+```
+##### Example Response
+```json
+{
+    "data": {
+        "results": [
+            {
+                "id": 1,
+                "created_at": "2020-02-10T23:07:16.199433+01:00",
+                "updated_at": "2020-02-10T23:07:16.199433+01:00",
+                "uuid": "ea06b2e7-4b08-4697-bcfc-2a5c6dde8f1c",
+                "email": "john@example.com",
+                "name": "John Doe",
+                "attribs": {
+                    "city": "Bengaluru",
+                    "good": true,
+                    "type": "known"
+                },
+                "status": "enabled",
+                "lists": [
+                    {
+                        "subscription_status": "unconfirmed",
+                        "id": 1,
+                        "uuid": "ce13e971-c2ed-4069-bd0c-240e9a9f56f9",
+                        "name": "Default list",
+                        "type": "public",
+                        "tags": [
+                            "test"
+                        ],
+                        "created_at": "2020-02-10T23:07:16.194843+01:00",
+                        "updated_at": "2020-02-10T23:07:16.194843+01:00"
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "created_at": "2020-02-18T21:10:17.218979+01:00",
+                "updated_at": "2020-02-18T21:10:17.218979+01:00",
+                "uuid": "ccf66172-f87f-4509-b7af-e8716f739860",
+                "email": "quadri@example.com",
+                "name": "quadri",
+                "attribs": {},
+                "status": "enabled",
+                "lists": [
+                    {
+                        "subscription_status": "unconfirmed",
+                        "id": 1,
+                        "uuid": "ce13e971-c2ed-4069-bd0c-240e9a9f56f9",
+                        "name": "Default list",
+                        "type": "public",
+                        "tags": [
+                            "test"
+                        ],
+                        "created_at": "2020-02-10T23:07:16.194843+01:00",
+                        "updated_at": "2020-02-10T23:07:16.194843+01:00"
+                    }
+                ]
+            },
+            {
+                "id": 3,
+                "created_at": "2020-02-19T19:10:49.36636+01:00",
+                "updated_at": "2020-02-19T19:10:49.36636+01:00",
+                "uuid": "5d940585-3cc8-4add-b9c5-76efba3c6edd",
+                "email": "sugar@example.com",
+                "name": "sugar",
+                "attribs": {},
+                "status": "enabled",
+                "lists": []
+            }
+        ],
+        "query": "",
+        "total": 3,
+        "per_page": 20,
+        "page": 1
+    }
+}
+```
+
+
+
+
+
+
+#### **GET** /api/subscribers/:id
+ Get a single subscriber 
+
+##### Parameters
+
+Name     | Parameter type |Data type       | Required/Optional |  Description
+---------|----------------|----------------|-------------------|-----------------------
+id       | Path parameter | Number         | Required          | The id of the subscriber you want to get.
+
+##### Example Request
+```shell
+curl 'http://localhost:9000/api/subscribers/1' 
+```
+
+##### Example Response
+```json
+{
+    "data": {
+        "id": 1,
+        "created_at": "2020-02-10T23:07:16.199433+01:00",
+        "updated_at": "2020-02-10T23:07:16.199433+01:00",
+        "uuid": "ea06b2e7-4b08-4697-bcfc-2a5c6dde8f1c",
+        "email": "john@example.com",
+        "name": "John Doe",
+        "attribs": {
+            "city": "Bengaluru",
+            "good": true,
+            "type": "known"
+        },
+        "status": "enabled",
+        "lists": [
+            {
+                "subscription_status": "unconfirmed",
+                "id": 1,
+                "uuid": "ce13e971-c2ed-4069-bd0c-240e9a9f56f9",
+                "name": "Default list",
+                "type": "public",
+                "tags": [
+                    "test"
+                ],
+                "created_at": "2020-02-10T23:07:16.194843+01:00",
+                "updated_at": "2020-02-10T23:07:16.194843+01:00"
+            }
+        ]
+    }
+}
+```
+
+
+
+
+
+#### **GET** /api/subscribers/list_id
+Get subscribers in one or more lists 
+
+##### Parameters
+
+Name    | Parameter type  | Data type   |  Required/Optional  | Description
+------- |-----------------|-------------|---------------------|---------------
+List_id | Request body    | Number      | Required            |  The id of the list you want to get.
+
+##### Example Request
 ```shell
 curl 'http://localhost:9000/api/subscribers?list_id=1&list_id=2&page=1'
 ```
 
-Response
+##### Example Response
 
 ```json
 {
@@ -65,14 +216,17 @@ Response
 }
 ```
 
-#### Query subscribers with an SQL expression
+#### **GET** /api/subscribers
+Query subscribers with an SQL expression
 
+##### Example Request
 ```shell
-curl -X GET  'http://localhost:9001/api/subscribers' \
+curl -X GET  'http://localhost:9000/api/subscribers' \
     -d 'page=1' \
     -d "query=subscribers.name LIKE 'Test%' AND subscribers.attribs->>'city' = 'Bengaluru'"
 ```
 
+##### Example Response 
 ```json
 {
   "data": {
@@ -115,14 +269,28 @@ curl -X GET  'http://localhost:9001/api/subscribers' \
 }
 ```
 
-#### Add a new subscriber
 
+#### **POST** /api/subscribers
+
+Add a new subscriber
+
+##### Parameters 
+
+Name   | Parameter type   | Data type             | Required/Optional                 | Description
+-------|------------------|-----------------------|-----------------------------------|----------------------------
+email  | Request body     | String                | Required                          | The email address of the new susbcriber.
+name   | Request body     | String                | Required                          | The name of the new subscriber. 
+status | Request body     | String                | Required                          | The status of the new subscriber. Can be enabled, disabled or blacklisted. 
+list   | Request body     | Numbers               | Optional                         | The id value of list to which new subscriber will be added.
+attribs | Request body  | json                    | Optional                         | JSON list containing new subscriber's attributes.
+
+##### Example Request
 ```shell
 curl 'http://localhost:9000/api/subscribers' -H 'Content-Type: application/json' \
     --data '{"email":"subsriber@domain.com","name":"The Subscriber","status":"enabled","lists":[1],"attribs":{"city":"Bengaluru","projects":3,,"stack":{"languages":["go","python"]}}}'
 ```
 
-Response
+##### Example Response
 
 ```json
 {
@@ -143,3 +311,112 @@ Response
   }
 }
 ```
+
+
+#### **PUT** /api/subscribers/:id/blacklist
+Blacklist a single subscriber
+
+##### Parameters 
+
+Name  | Parameter type | Data type  | Required/Optional | Description 
+------|----------------|------------|-------------------|-------------
+id    | Path parameter | Number     | Required          | The id of the subscriber you want to blacklist.
+
+##### Example Request 
+
+```shell
+curl --location --request PUT 'http://localhost:9000/api/subscribers/9/blacklist'
+```
+
+##### Example Response 
+
+``` json
+{
+    "data": true
+} 
+```
+
+#### **PUT** /api/subscribers/query/blacklist 
+Blacklist subscribers with an arbitrary sql expression
+
+##### Example Request
+``` shell
+curl --location --request PUT 'http://localhost:9000/api/subscribers/query/blacklist' \
+--data-raw '"query=subscribers.name LIKE '\''John Doe'\'' AND subscribers.attribs->>'\''city'\'' = '\''Bengaluru'\''"'
+```
+
+##### Example Response
+
+``` json
+{
+    "data": true
+}
+```
+
+#### **DELETE** /api/subscribers/:id
+Delete a single subscriber 
+
+##### Parameters 
+
+name    | Parameter type   | Data type   |   Required/Optional    |  Description
+--------|------------------|-------------|------------------------|------------------
+id      | Path parameter   | Number      | Required               | The id of the subscriber you want to delete.
+
+##### Example  Request 
+
+``` shell
+curl --location --request DELETE 'http://localhost:9000/api/subscribers/9'
+```
+
+##### Example Response 
+
+``` json
+{
+    "data": true
+}
+```
+
+#### **DELETE** /api/subscribers 
+Delete one or more subscribers
+
+##### Parameters 
+
+Name    |   Parameter type    | Data type      |   Required/Optional   | Description
+--------|---------------------|----------------|-----------------------|--------------
+id      | Query parameters    | Number         |  Required             | The id of the subscribers you want to delete.
+
+##### Example Request
+
+``` shell
+curl --location --request DELETE 'http://localhost:9000/api/subscribers?id=10&id=11'
+```
+
+##### Example Response 
+
+``` json 
+{
+    "data": true
+}
+```
+
+
+
+#### **POST** /api/subscribers/query/delete 
+Delete subscribers with an arbitrary SQL expression
+
+##### Example Request
+``` shell
+curl --location --request POST 'http://localhost:9000/api/subscribers/query/delete' \
+--data-raw '"query=subscribers.name LIKE '\''John Doe'\'' AND subscribers.attribs->>'\''city'\'' = '\''Bengaluru'\''"'
+```
+
+##### Example Response
+``` json
+{
+    "data": true
+}
+```
+
+
+
+
