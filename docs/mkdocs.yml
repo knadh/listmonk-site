@@ -1,7 +1,7 @@
 site_name: listmonk / Documentation
 theme:
-  name: 
-  custom_dir: "mkdocs-material/material"
+  name: material
+  # custom_dir: "mkdocs-material/material"
   logo: "images/favicon.png"
   favicon: "images/favicon.png"
   language: "en"
