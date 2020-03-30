@@ -1,8 +1,19 @@
 site_name: listmonk / Documentation
 theme:
-  name: "material"
+  name: 
+  custom_dir: "mkdocs-material/material"
   logo: "images/favicon.png"
   favicon: "images/favicon.png"
+  language: "en"
+  font:
+    text: 'Ubuntu'
+    code: 'Ubuntu Mono'
+  direction: 'ltr'
+  extra:
+  search:
+    language: 'en, de, ru'
+  feature:
+    tabs: true
 
   palette:
     primary: "white"
@@ -29,3 +40,6 @@ pages:
   - "Integrating with external systems": external-integration.md
   - "API": apis/apis.md
   - "API / Subscribers": apis/subscribers.md
+  - "API / Lists": apis/lists.md
+ 
+  
