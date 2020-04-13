@@ -1,15 +1,15 @@
-# List Endpoint
+# API/LISTS
 Method                   | Endpoint                                             | Description
 -------------------------|------------------------------------------------------|----------------------------------------------
-`GET`                    | [/api/lists](#get-apilists)                          | Get lists
-`GET`                    | [/api/lists/:list_id](#get-apilistslist_id)          | Get a single list
-`POST`                   | [/api/lists](#post-apilists)                         | Create a new list
-`PUT`                    | [/api/lists/:list_id](#put-apilistslist_i)           | Modify a list
-`DELETE`                 |  /api/lists/:list_id                                 | Delete a list
+`GET`                    | [/api/lists](#get-apilists)                          | Gets all lists.
+`GET`                    | [/api/lists/:`list_id`](#get-apilistslist_id)          | Gets a single list.
+`POST`                   | [/api/lists](#post-apilists)                         | Creates a new list.
+`PUT`                    | /api/lists/:`list_id`                                  | Modifies a list.
+`DELETE`                 | [/api/lists/:`list_id`](#put-apilistslist_id)          | Deletes a list.
 
 
-#### **GET** /api/lists
-Get all lists
+#### **`GET`** /api/lists
+Gets all lists.
 
 ##### Example Request
 ```shell
@@ -81,13 +81,13 @@ curl --location --request GET 'http://localhost:9000/api/lists'
 }
 ```
 
-#### **GET** /api/lists/:list_id
-Get a single list
+#### **`GET`** /api/lists/:`list_id`
+Gets a single list.
 
 ##### Parameters
 Name    | Parameter type     | Data type   | Required/Optional   | Description
 --------|--------------------|-------------|---------------------|---------------------
-list_id | Path parameter     | number      | Required            |  The id of the list you want to get.
+`list_id` | Path parameter     | number      | Required            |  The id value of the list you want to get.
 
 ##### Example Request
 ``` shell
@@ -110,8 +110,8 @@ curl --location --request GET 'http://localhost:9000/api/lists/5'
 }
 ```
 
-#### **POST** /api/lists
-Create a new list
+#### **`POST`** /api/lists
+Creates a new list.
 
 ##### Parameters
 Name    | Parameter type  | Data type   | Required/Optional  | Description
@@ -141,13 +141,13 @@ curl --location --request POST 'http://localhost:9000/api/lists'
 null
 ```
 
-#### **PUT** /api/list/list_id
-Modify a list
+#### **`PUT`** /api/lists/`list_id`
+Modifies a list.
 
 ##### Parameters
 Name      |  Parameter type    | Data type    | Required/Optional     | Description
 ----------|--------------------|--------------|-----------------------|-------------------------
-list_id   | Path parameter     | number       | Required              | The id of the list to be modified.
+`list_id`   | Path parameter     | number       | Required              | The id of the list to be modified.
 name      | Request body       | string       | Optional              | The name which the old name will be modified to.
 type      | Request body       | string       | Optional              | List type, can be set to Private or Public.
 
