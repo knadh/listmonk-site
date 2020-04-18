@@ -1,25 +1,25 @@
-# Subscribers Endpoint
+# API/SUBSCRIBERS
  Method   | Endpoint                                                              | Description                                             |
  -------- | ----------------------------------------------------------------------| ---------------------------------
- `GET`    | [/api/subscribers](#get-apisubscribers)                               | Get all subscribers                     
- `GET`    | [/api/subscribers/:id](#get-apisubscribersid)                         | Get a single subscriber
- `GET`    | /api/subscribers/lists/:id                                            | Get all subscribers in a list                
- `GET`    | [/api/subscribers/list_id](#get-apisubscriberslist_id)                | Get subscribers in one or more list   
- `GET`    | [/api/subscribers](#get-apisubscribers_1)                             | Get subscribers filtered by an arbitrary SQL expression 
- `POST`   | [/api/subscribers](#post-apidubscribers)                              | Add a new subscriber                        
- `PUT`    | /api/subscribers/:id                                                  | Update a subscriber by ID                    
- `PUT`    | [/api/subscribers/:id/blacklist](#put-apisubscribersidblacklist)      | Blacklist a single subscriber               
- `PUT`    | /api/subscribers/blacklist                                            | Blacklist one or more subscribers     
- `PUT`    | [/api/subscribers/query/blacklist](#put-apisubscribersqueryblacklist) | Blacklist subscribers with an arbitrary SQL expression  
- `DELETE` | [/api/subscribers/:id](#delete-apisubscribersid)                      | Delete a single subscriber                   
- `DELETE` | [/api/subscribers](#delete-apisubscribers)                            | Delete one or more subscribers             
- `POST` | [/api/subscribers/query/delete](#post-apisubscribersquerydelete)        | Delete subscribers with an arbitrary SQL expression     
+ `GET`    | [/api/subscribers](#get-apisubscribers)                               | Gets all subscribers.                     
+ `GET`    | [/api/subscribers/:`id`](#get-apisubscribersid)                         | Gets a single subscriber.
+ `GET`    | /api/subscribers/lists/:`id`                                            | Gets subscribers in a list.                
+ `GET`    | [/api/subscribers/:`list_id`](#get-apisubscriberslist_id)                | Gets subscribers in one or more list.   
+ `GET`    | [/api/subscribers](#get-apisubscribers_1)                             | Gets subscribers filtered by an arbitrary SQL expression. 
+ `POST`   | [/api/subscribers](#post-apisubscribers)                              | Creates a new subscriber.                        
+ `PUT`    | /api/subscribers/:`id`                                                 | Updates a subscriber by ID.                    
+ `PUT`    | [/api/subscribers/:`id`/blacklist](#put-apisubscribersidblacklist)      | Blacklists a single subscriber.               
+ `PUT`    | /api/subscribers/blacklist                                            | Blacklists one or more subscribers.     
+ `PUT`    | [/api/subscribers/query/blacklist](#put-apisubscribersqueryblacklist) | Blacklists subscribers with an arbitrary SQL expression.  
+ `DELETE` | [/api/subscribers/:`id`](#delete-apisubscribersid)                      | Deletes a single subscriber.                   
+ `DELETE` | [/api/subscribers](#delete-apisubscribers)                            | Deletes one or more subscribers .            
+ `POST` | [/api/subscribers/query/delete](#post-apisubscribersquerydelete)        | Deletes subscribers with an arbitrary SQL expression .    
 
 
 
 
-#### **GET** /api/subscribers
-Get all subscribers 
+#### **`GET`** /api/subscribers
+Gets all subscribers. 
 
 ##### Example Request
 ```shell
@@ -107,14 +107,14 @@ curl 'http://localhost:9000/api/subscribers'
 
 
 
-#### **GET** /api/subscribers/:id
- Get a single subscriber 
+#### **`GET`** /api/subscribers/:`id`
+ Gets a single subscriber. 
 
 ##### Parameters
 
 Name     | Parameter type |Data type       | Required/Optional |  Description
 ---------|----------------|----------------|-------------------|-----------------------
-id       | Path parameter | Number         | Required          | The id of the subscriber you want to get.
+`id`       | Path parameter | Number         | Required          | The id value of the subscriber you want to get.
 
 ##### Example Request
 ```shell
@@ -159,14 +159,14 @@ curl 'http://localhost:9000/api/subscribers/1'
 
 
 
-#### **GET** /api/subscribers/list_id
-Get subscribers in one or more lists 
+#### **`GET`** /api/subscribers/:`list_id`
+Gets subscribers in one or more lists. 
 
 ##### Parameters
 
 Name    | Parameter type  | Data type   |  Required/Optional  | Description
 ------- |-----------------|-------------|---------------------|---------------
-List_id | Request body    | Number      | Required            |  The id of the list you want to get.
+`List_id` | Request body    | Number      | Required            |  The id value of the list whose subcribers you want to get.
 
 ##### Example Request
 ```shell
@@ -216,8 +216,8 @@ curl 'http://localhost:9000/api/subscribers?list_id=1&list_id=2&page=1'
 }
 ```
 
-#### **GET** /api/subscribers
-Query subscribers with an SQL expression
+#### **`GET`** /api/subscribers
+Gets subscribers with an SQL expression.
 
 ##### Example Request
 ```shell
@@ -225,6 +225,8 @@ curl -X GET  'http://localhost:9000/api/subscribers' \
     -d 'page=1' \
     -d "query=subscribers.name LIKE 'Test%' AND subscribers.attribs->>'city' = 'Bengaluru'"
 ```
+
+>Refer to the [querying and segmentation](/querying-and-segmentation#querying-and-segmenting-subscribers) section for more information on how to query subscribers with SQL expressions.
 
 ##### Example Response 
 ```json
@@ -270,9 +272,9 @@ curl -X GET  'http://localhost:9000/api/subscribers' \
 ```
 
 
-#### **POST** /api/subscribers
+#### **`POST`** /api/subscribers
 
-Add a new subscriber
+Creates a new subscriber.
 
 ##### Parameters 
 
@@ -313,14 +315,14 @@ curl 'http://localhost:9000/api/subscribers' -H 'Content-Type: application/json'
 ```
 
 
-#### **PUT** /api/subscribers/:id/blacklist
-Blacklist a single subscriber
+#### **`PUT`** /api/subscribers/:`id`/blacklist
+Blacklists a single subscriber.
 
 ##### Parameters 
 
 Name  | Parameter type | Data type  | Required/Optional | Description 
 ------|----------------|------------|-------------------|-------------
-id    | Path parameter | Number     | Required          | The id of the subscriber you want to blacklist.
+`id`    | Path parameter | Number     | Required          | The id value of the subscriber you want to blacklist.
 
 ##### Example Request 
 
@@ -336,14 +338,17 @@ curl --location --request PUT 'http://localhost:9000/api/subscribers/9/blacklist
 } 
 ```
 
-#### **PUT** /api/subscribers/query/blacklist 
-Blacklist subscribers with an arbitrary sql expression
+#### **`PUT`** /api/subscribers/query/blacklist 
+Blacklists subscribers with an arbitrary sql expression.
 
 ##### Example Request
 ``` shell
 curl --location --request PUT 'http://localhost:9000/api/subscribers/query/blacklist' \
 --data-raw '"query=subscribers.name LIKE '\''John Doe'\'' AND subscribers.attribs->>'\''city'\'' = '\''Bengaluru'\''"'
 ```
+
+>Refer to the [querying and segmentation](/querying-and-segmentation#querying-and-segmenting-subscribers) section for more information on how to query subscribers with SQL expressions.
+
 
 ##### Example Response
 
@@ -353,14 +358,14 @@ curl --location --request PUT 'http://localhost:9000/api/subscribers/query/black
 }
 ```
 
-#### **DELETE** /api/subscribers/:id
-Delete a single subscriber 
+#### **`DELETE`** /api/subscribers/:`id`
+Deletes a single subscriber. 
 
 ##### Parameters 
 
 name    | Parameter type   | Data type   |   Required/Optional    |  Description
 --------|------------------|-------------|------------------------|------------------
-id      | Path parameter   | Number      | Required               | The id of the subscriber you want to delete.
+`id`      | Path parameter   | Number      | Required               | The id of the subscriber you want to delete.
 
 ##### Example  Request 
 
@@ -376,8 +381,8 @@ curl --location --request DELETE 'http://localhost:9000/api/subscribers/9'
 }
 ```
 
-#### **DELETE** /api/subscribers 
-Delete one or more subscribers
+#### **`DELETE`** /api/subscribers 
+Deletes one or more subscribers.
 
 ##### Parameters 
 
@@ -401,14 +406,18 @@ curl --location --request DELETE 'http://localhost:9000/api/subscribers?id=10&id
 
 
 
-#### **POST** /api/subscribers/query/delete 
-Delete subscribers with an arbitrary SQL expression
+#### **`POST`** /api/subscribers/query/delete 
+Deletes subscribers with an arbitrary SQL expression.
 
 ##### Example Request
 ``` shell
 curl --location --request POST 'http://localhost:9000/api/subscribers/query/delete' \
 --data-raw '"query=subscribers.name LIKE '\''John Doe'\'' AND subscribers.attribs->>'\''city'\'' = '\''Bengaluru'\''"'
 ```
+
+>Refer to the [querying and segmentation](/querying-and-segmentation#querying-and-segmenting-subscribers) section for more information on how to query subscribers with SQL expressions.
+
+
 
 ##### Example Response
 ``` json

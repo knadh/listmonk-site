@@ -41,5 +41,8 @@ pages:
   - "API": apis/apis.md
   - "API / Subscribers": apis/subscribers.md
   - "API / Lists": apis/lists.md
- 
+  - "API / Import": apis/import.md
+  - "API / Campaigns": apis/campaigns.md
+  - "API / Media": apis/media.md
+  - "API / Templates": apis/templates.md
   
