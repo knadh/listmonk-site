@@ -1,12 +1,12 @@
 # API/MEDIA
 Method        |         Endpoint                                             |       Description
 --------------|--------------------------------------------------------------|----------------------------------------------
-`GET`         | [/api/media](#get-apimedia)                                  | Gets a uploaded media file.
+`GET`         | [/api/media](#get-apimedia)                                  | Gets an uploaded media file.
 `POST`        | [/api/media](#post-apimedia)                                 | Uploads a media file.
 `DELETE`      | [/api/media/:`media_id`](#delete-apimediamedia_id)             | Deletes uploaded media files. 
 
 #### **`GET`** /api/media
-Gets a uploaded media file.
+Gets an uploaded media file.
 
 ##### Example Request
 ```shell
@@ -32,6 +32,21 @@ curl --location --request GET 'http://localhost:9000/api/media' \
 }
 ```
 
+Response definitions
+The following table describes each item in the response.
+
+|Response item |Description |Data type |
+|:---------------:|:------------|:----------:|
+|data|Array of the media file objects, which contains an information about the uploaded media files|array|
+|id|Media file object ID|number (int)|
+|uuid|Media file uuuid|string (uuid)|
+|filename|Name of the media file|string|
+|width|Width of the media file|number (int)|
+|height|Height of the media file|number (int)|
+|created_at|Date and time, when the media file object was created|String (localDateTime)|
+|thumb_uri|The thumbnail URI of the media file|string|
+|uri|URI of the media file|string|
+
 #### **`POST`** /api/media
 Uploads a media file.
 
@@ -54,9 +69,14 @@ curl --location --request POST 'http://localhost:9000/api/media' \
     "data": true
 }
 ```
+Response definitions
+
+|Response item |Description |Data type |
+|:---------------:|:------------:|:----------:|
+|data|True means that the media file was successfully uploaded |boolean|
 
 #### **`DELETE`** /api/media/:`media_id`
-Deletes a uploaded media file.
+Deletes an uploaded media file.
 
 ##### Parameters
 Name            |   Parameter Type        | Data Type          | Required/Optional       | Description
@@ -76,3 +96,9 @@ curl --location --request DELETE 'http://localhost:9000/api/media/1'
     "data": true
 }
 ```
+
+Response definitions
+
+|Response item |Description |Data type |
+|:---------------:|:------------:|:----------:|
+|data|True means that the media file was successfully deleted |boolean|
