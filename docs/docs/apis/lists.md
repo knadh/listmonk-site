@@ -1,4 +1,4 @@
-# API/LISTS
+# API / Lists
 Method                   | Endpoint                                             | Description
 -------------------------|------------------------------------------------------|----------------------------------------------
 `GET`                    | [/api/lists](#get-apilists)                          | Gets all lists.

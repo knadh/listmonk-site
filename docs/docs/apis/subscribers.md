@@ -1,4 +1,5 @@
-# API/SUBSCRIBERS
+# API / Subscribers
+
  Method   | Endpoint                                                              | Description                                             |
  -------- | ----------------------------------------------------------------------| ---------------------------------
  `GET`    | [/api/subscribers](#get-apisubscribers)                               | Gets all subscribers.                     

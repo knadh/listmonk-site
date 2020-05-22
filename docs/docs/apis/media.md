@@ -1,4 +1,4 @@
-# API/MEDIA
+# API / Media
 Method        |         Endpoint                                             |       Description
 --------------|--------------------------------------------------------------|----------------------------------------------
 `GET`         | [/api/media](#get-apimedia)                                  | Gets an uploaded media file.
