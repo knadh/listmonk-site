@@ -15,7 +15,7 @@ listmonk is a self-hosted, full fledged, high performance mailing list and newsl
 - Download the [latest release](https://github.com/knadh/listmonk/releases) and extract the listmonk binary somewhere.
 - Copy `config.toml.sample` to `config.toml` and add your configuration (SMTP and Postgres DB credentials primarily).
 - `./listmonk --install` to setup the DB.
-- Visit `http://localhost:9000`.
+- Run `./listmonk` and visit `http://localhost:9000`.
 - Since there is no user auth yet, it's best to put listmonk behind a proxy like Nginx and setup basicauth on all endpoints except for the few endpoints that need to be public. Here is a [sample nginx config](https://github.com/knadh/listmonk/wiki/Production-Nginx-config) for production use.
 
 ### Running on docker
