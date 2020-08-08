@@ -531,22 +531,3 @@ th {
   display: table;
   clear: both; }
   
-
-
-@font-face {
-  font-family: 'Inter';
-  font-display: auto;
-  font-style:  normal;
-  font-weight: 400;
-  src: url("https://rsms.me/inter/font-files/Inter-Regular.woff2") format("woff2"),
-       url("https://rsms.me/inter/font-files/Inter-Regular.woff") format("woff");
-}
-
-@font-face {
-  font-family: 'Inter';
-  font-display: auto;
-  font-style:  normal;
-  font-weight: 500;
-  src: url("https://rsms.me/inter/font-files/Inter-Medium.woff2") format("woff2"),
-       url("https://rsms.me/inter/font-files/Inter-Medium.woff") format("woff");
-}

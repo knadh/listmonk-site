@@ -6,7 +6,7 @@ theme:
   favicon: "images/favicon.png"
   language: "en"
   font:
-    text: 'Ubuntu'
+    text: 'Inter'
     code: 'Ubuntu Mono'
   direction: 'ltr'
   extra:
@@ -34,6 +34,9 @@ copyright: "Copyright &copy; 2019, Kailash Nadh."
 
 pages:
   - "Introduction": index.md
+  - "Installation": installation.md
+  - "Configuration": configuration.md
+  - "Developer setup": developer-setup.md
   - "Concepts": concepts.md
   - "Querying and segmenting subscribers": querying-and-segmentation.md
   - "Templating": templating.md

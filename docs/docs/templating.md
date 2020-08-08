@@ -17,7 +17,7 @@ There are several template functions and expressions that can be used in campaig
 | `.Subscriber.Name`      | Name of the subscriber                                                                       |
 | `.Subscriber.FirstName` | First name of the subscriber (automatically extracted from the name)                         |
 | `.Subscriber.LastName`  | Last name of the subscriber (automatically extracted from the name)                          |
-| `.Subscriber.Status`    | Status of the subscriber (enabled, disabled, blacklisted)                                    |
+| `.Subscriber.Status`    | Status of the subscriber (enabled, disabled, blocklisted)                                    |
 | `.Subscriber.Attribs`   | Map of arbitrary attributes. Fields can be accessed with `.`, eg: `.Subscriber.Attribs.city` |
 | `.Subscriber.CreatedAt` | Timestamp when the subscriber was first added                                                |
 | `.Subscriber.UpdatedAt` | Timestamp when the subscriber was modified                                                   |

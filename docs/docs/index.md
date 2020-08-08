@@ -8,22 +8,7 @@ listmonk is a self-hosted, full fledged, high performance mailing list and newsl
 
 > listmonk is **alpha** software and may change and break. Use with caution. That said, it has been in active use at [zerodha.com](https://zerodha.com) for several months where it has processed hundreds of campaigns and tens of millions of e-mails.
 
-![listmonk screenshot](images/splash.png)
-
-### Installation
-
-- Download the [latest release](https://github.com/knadh/listmonk/releases) and extract the listmonk binary somewhere.
-- Copy `config.toml.sample` to `config.toml` and add your configuration (SMTP and Postgres DB credentials primarily).
-- `./listmonk --install` to setup the DB.
-- Run `./listmonk` and visit `http://localhost:9000`.
-- Since there is no user auth yet, it's best to put listmonk behind a proxy like Nginx and setup basicauth on all endpoints except for the few endpoints that need to be public. Here is a [sample nginx config](https://github.com/knadh/listmonk/wiki/Production-Nginx-config) for production use.
-
-### Running on docker
-
-[Read this](https://github.com/knadh/listmonk#running-on-docker) to run listmonk on a Docker container.
+[![listmonk screenshot](https://user-images.githubusercontent.com/547147/89733057-87566580-da70-11ea-8160-855f6f046a55.png)](https://listmonk.app)
 
 ## Developers
-
-listmonk is free, open source software licensed under AGPLv3. There are a few of essential features such as user auth/management and bounce tracking that are currently missing. Contributions are welcome.
-
-The backend is written in Go and the frontend is in React with Ant Design for UI. See [developer setup](https://github.com/knadh/listmonk/wiki/Developer-setup) to get started.
+listmonk is a free and open source software licensed under AGPLv3. If you are interested in contributing, check out the [GitHub repository](https://github.com/knadh/listmonk) and refer to the [developer setup](/developer-setup). The backend is written in Go and the frontend is Vue with Buefy for UI. 

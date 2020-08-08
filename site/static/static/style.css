@@ -3,80 +3,26 @@ body {
   font-size: 16px;
   font-weight: 400;
   line-height: 28px;
+  color: #111;
+  overflow-x: hidden;
 }
 
-.container {
-  max-width: 900px;
-}
-.header {
-  margin: 60px 0 90px 0;
-  text-align: left;
-}
-
-nav {
-  text-align: right;
-}
-nav a {
-  margin: 0 0 0 30px;
-}
-nav .github img {
-  max-width: 32px;
-  height: auto;
-  vertical-align: middle;
-  display: inline-block;
-}
-
-.features .columns {
-  margin-bottom: 30px;
-}
-
-.download a {
-  margin: 0 0 0 15px;
-}
-
-.footer {
-  padding-top: 30px;
-  margin: 30px 0;
-  border-top: 1px solid #ddd;
-  color: #777;
-}
-
-.button {
-  background: #7f2aff;
-  display: inline-block;
-  text-align: center;
-  font-weight: 500;
-  font-size: 1.3em;
-
-  color: #fff;
-  border-radius: 100px;
-  padding: 15px 30px;
-  min-width: 200px;
-}
-.button:hover {
-  background: #000;
-  color: #fff;
-}
-.notice {
-  background: #fafafa;
-  border-left: 4px solid #ddd;
-  color: #666;
-  padding: 5px 15px;
-}
 
 h1,
 h2,
 h3,
 h4,
 h5 {
-  font-weight: 400;
-  /*color: #7f2aff;*/
+  font-weight: 600;
   margin: 15px 0 15px 0;
 }
 h1 {
-  font-weight: 500;
-  font-size: 2.5em;
-  line-height: 1.5em;
+  font-size: 2.2em;
+  line-height: 1.2em;
+  letter-spacing: -0.01em;
+}
+h1.large {
+  font-size: 3.5em;
 }
 h2 {
   font-size: 2em;
@@ -85,7 +31,6 @@ h2 {
 h3 {
   font-size: 1.6em;
   line-height: 1.6em;
-  color: #888;
 }
 section {
   margin-bottom: 100px;
@@ -97,26 +42,202 @@ a {
 a:hover {
   color: inherit;
 }
+::selection {
+  background: #111;
+  color: #fff;
+}
+code {
+  background: #f6f6f6;
+  color: #777;
+  padding: 0 3px;
+  border-radius: 2px;
+}
 img {
   max-width: 100%;
 }
+
+/* Helpers */
 .center {
   text-align: center;
 }
 
-@media screen and (max-width: 490px) {
+.box {
+  border-radius: 5px;
+  border: 1px solid #eee;
+  box-shadow: 2px 2px 3px #f7f7f7;
+}
+
+img.box {
+  display: inline-block;
+  border-radius: 5px;
+  border: 1px solid #e9e9e9;
+  box-shadow: 2px 2px 4px #eee;
+}
+
+.button {
+  background: #7f2aff;
+  display: inline-block;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.3em;
+
+  color: #fff;
+  border-radius: 100px;
+  padding: 15px 30px;
+  min-width: 150px;
+}
+.button:hover {
+  background: #111;
+  color: #fff;
+}
+.notice {
+  background: #fafafa;
+  border-left: 4px solid #ddd;
+  color: #666;
+  padding: 5px 15px;
+}
+
+
+/* Layout */
+.container {
+  max-width: none;
+  width: 70vw;
+  margin-left: 15vw;
+}
+.header {
+  padding: 5vh 0 90px 0;
+  text-align: left;
+}
+
+.logo img {
+  width: 125px;
+  height: auto;
+}
+
+nav {
+  text-align: right;
+}
+  nav a:not(:first-child) {
+    margin: 0 0 0 40px;
+  }
+  nav .github img {
+    max-width: 32px;
+    height: auto;
+    vertical-align: middle;
+    display: inline-block;
+  }
+  nav .github {
+    height: 30px;
+    vertical-align: middle;
+    margin-left: 40px;
+  }
+
+
+.splash {
+  min-height: 76vh;
+}
+  .splash .container {
+    width: 85vw;
+    margin: 0 0 0 15vw;
+  }
+  .splash .vertical {
+    display: flex;
+    align-items: center;
+  }
+  .splash h1 {
+    font-weight: 700;
+    max-width: 90%;
+  }
+  .splash h3 {
+    font-weight: 400;
+    color: #888;
+  }
+  .splash img {
+    border-radius: 5px 0 0 5px;
+  }
+
+.confetti {
+  position: relative;
+}
+  .confetti .s1, .confetti .s2, .confetti .s3, .confetti .s4 {
+    position: absolute;
+  }
+  .confetti .s1 {
+    left: -35px;
+    top: 20%;
+    z-index: 10;
+  }
+  .confetti .s2 {
+    z-index: 30;
+    right: 20%;
+    top: -12px;
+  }
+  .confetti .s3 {
+    z-index: 30;
+    left: 15%;
+    bottom: 0;
+  }
+  .confetti .s4 {
+    z-index: 30;
+    left: -75%;
+    top: 0;
+  }
+  .confetti .box {
+    position: relative;
+    z-index: 20;
+  }
+
+#download {
+  padding: 30px;
+  border-radius: 3px;
+}
+  #download .download-links a:not(:last-child) {
+    display: inline-block;
+    margin-right: 15px;
+  }
+
+.feature .row {
+  display: flex;
+  align-items: center;
+}
+
+.banner {
+  padding-top: 90px;
+}
+.banner .box {
+    background: #fff;
+    padding: 30px 60px;
+    border: 3px solid #7f2aff;
+  }
+
+.footer {
+  border-top: 1px solid #eee;
+  padding-top: 30px;
+  margin: 30px 0;
+  color: #777;
+}
+
+@media screen and (max-width: 1400px) {
+  .container {
+    width: 90vw;
+    margin: 0 0 0 5vw;
+  }
+  .splash .container {
+    width: 95vw;
+    margin-left: 5vw;
+  }
+}
+@media screen and (max-width: 1010px) {
   .header {
-    margin: 0;
+    padding: 30px 0 0 0;
   }
   nav {
     text-align: left;
   }
-  nav a {
-    margin: 0 10px 0 0;
-  }
-  .container {
-    width: auto;
-    padding: 0;
-    margin: 30px;
+  .splash .vertical {
+    display: block;
+  } 
+  .feature .row {
+    display: block;
   }
 }

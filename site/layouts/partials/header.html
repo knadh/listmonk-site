@@ -6,6 +6,7 @@
   <meta name="description" content="{{with .Description }}{{ . }}{{else}}Send e-mail campaigns from a powerful dashboard. High performance and features packed into one app.{{end}}" />
   <meta name="keywords" content="{{ if .Keywords }}{{ range .Keywords }}{{ . }}, {{ end }}{{else if isset .Params "tags" }}{{ range .Params.tags }}{{ . }}, {{ end }}{{end}}">
   <link rel="canonical" href="{{ .Permalink }}">
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,600,700" rel="stylesheet">
   <link href="{{ .Site.BaseURL }}static/base.css" rel="stylesheet" type="text/css" />
   <link href="{{ .Site.BaseURL }}static/style.css" rel="stylesheet" type="text/css" />
 
@@ -18,24 +19,22 @@
     <meta property="og:image" content="{{ .Site.BaseURL }}static/images/{{ .Params.thumbnail }}" />
   {{ else }}
     <link rel="image_src" href="{{ .Site.BaseURL }}static/images/thumbnail.png" />
-    <meta property="og:image" content="{{ .Site.BaseURL }}static/images/thumbnail.png" />
+    <meta property="og:image" content="{{ .Site.BaseURL }}static/images/splash.png" />
   {{ end }}
 </head>
 <body>
-<div id="wrap" class="container">
+
+<div class="container">
   <header class="header">
     <div class="row">
-      <div class="logo six columns">
+      <div class="logo two columns">
         <a href="{{ .Site.BaseURL }}"><img src="{{ .Site.BaseURL }}static/images/listmonk.svg" alt="Listmonk logo" /></a>
       </div>
-      <nav class="six columns">
-        <a href="docs">Docs</a>
-        <a href="https://github.com/knadh/listmonk" class="github"
-          >GitHub
-          <img
-            src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
-          />
-        </a>
+      <nav class="ten columns">
+        <a href="/#download">Download</a>
+        <a href="/docs">Docs</a>
+        <iframe src="https://ghbtns.com/github-btn.html?user=knadh&repo=listmonk&type=star&count=true&size=large" frameborder="0" scrolling="0" class="github"></iframe>
       </nav>
     </div>
   </header>
+</div>

@@ -38,7 +38,7 @@ Subscribers in a list will have one of these subscription statuses.
 | ------------- | --------------------------------------------------------------------------------- |
 | `unconfirmed` | The subscriber was added to the list directly without their explicit confirmation |
 | `confirmed`   | The subscriber added themselves to the list                                       |
-| `blacklisted` | The subscriber unsubscribed from the list permanently                             |
+| `blocklisted` | The subscriber unsubscribed from the list permanently                             |
 
 ## Campaign
 

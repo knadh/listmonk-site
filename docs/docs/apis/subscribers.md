@@ -9,9 +9,9 @@
  `GET`    | [/api/subscribers](#get-apisubscribers_1)                             | Gets subscribers filtered by an arbitrary SQL expression. 
  `POST`   | [/api/subscribers](#post-apisubscribers)                              | Creates a new subscriber.                        
  `PUT`    | /api/subscribers/:`id`                                                 | Updates a subscriber by ID.                    
- `PUT`    | [/api/subscribers/:`id`/blacklist](#put-apisubscribersidblacklist)      | Blacklists a single subscriber.               
- `PUT`    | /api/subscribers/blacklist                                            | Blacklists one or more subscribers.     
- `PUT`    | [/api/subscribers/query/blacklist](#put-apisubscribersqueryblacklist) | Blacklists subscribers with an arbitrary SQL expression.  
+ `PUT`    | [/api/subscribers/:`id`/blocklist](#put-apisubscribersidblocklist)      | Blocklists a single subscriber.               
+ `PUT`    | /api/subscribers/blocklist                                            | Blocklists one or more subscribers.     
+ `PUT`    | [/api/subscribers/query/blocklist](#put-apisubscribersqueryblocklist) | Blocklists subscribers with an arbitrary SQL expression.  
  `DELETE` | [/api/subscribers/:`id`](#delete-apisubscribersid)                      | Deletes a single subscriber.                   
  `DELETE` | [/api/subscribers](#delete-apisubscribers)                            | Deletes one or more subscribers .            
  `POST` | [/api/subscribers/query/delete](#post-apisubscribersquerydelete)        | Deletes subscribers with an arbitrary SQL expression .    
@@ -283,7 +283,7 @@ Name   | Parameter type   | Data type             | Required/Optional           
 -------|------------------|-----------------------|-----------------------------------|----------------------------
 email  | Request body     | String                | Required                          | The email address of the new susbcriber.
 name   | Request body     | String                | Required                          | The name of the new subscriber. 
-status | Request body     | String                | Required                          | The status of the new subscriber. Can be enabled, disabled or blacklisted. 
+status | Request body     | String                | Required                          | The status of the new subscriber. Can be enabled, disabled or blocklisted. 
 list   | Request body     | Numbers               | Optional                         | The id value of list to which new subscriber will be added.
 attribs | Request body  | json                    | Optional                         | JSON list containing new subscriber's attributes.
 
@@ -316,19 +316,19 @@ curl 'http://localhost:9000/api/subscribers' -H 'Content-Type: application/json'
 ```
 
 
-#### **`PUT`** /api/subscribers/:`id`/blacklist
-Blacklists a single subscriber.
+#### **`PUT`** /api/subscribers/:`id`/blocklist
+Blocklists a single subscriber.
 
 ##### Parameters 
 
 Name  | Parameter type | Data type  | Required/Optional | Description 
 ------|----------------|------------|-------------------|-------------
-`id`    | Path parameter | Number     | Required          | The id value of the subscriber you want to blacklist.
+`id`    | Path parameter | Number     | Required          | The id value of the subscriber you want to blocklist.
 
 ##### Example Request 
 
 ```shell
-curl --location --request PUT 'http://localhost:9000/api/subscribers/9/blacklist'
+curl --location --request PUT 'http://localhost:9000/api/subscribers/9/blocklist'
 ```
 
 ##### Example Response 
@@ -339,12 +339,12 @@ curl --location --request PUT 'http://localhost:9000/api/subscribers/9/blacklist
 } 
 ```
 
-#### **`PUT`** /api/subscribers/query/blacklist 
-Blacklists subscribers with an arbitrary sql expression.
+#### **`PUT`** /api/subscribers/query/blocklist 
+Blocklists subscribers with an arbitrary sql expression.
 
 ##### Example Request
 ``` shell
-curl --location --request PUT 'http://localhost:9000/api/subscribers/query/blacklist' \
+curl --location --request PUT 'http://localhost:9000/api/subscribers/query/blocklist' \
 --data-raw '"query=subscribers.name LIKE '\''John Doe'\'' AND subscribers.attribs->>'\''city'\'' = '\''Bengaluru'\''"'
 ```
 

@@ -1,110 +1,203 @@
 {{ partial "header.html" . }}
-<section class="splash center">
-  <h1><span>Self-hosted newsletter + mailing list manager</span></h1>
-  <h3>
-    Performance and features packed into a single binary
-  </h3>
-  <p>
-    <img
-      src="{{ .Site.BaseURL }}static/images/splash.png"
-      alt="listmonk dashboard"
-    />
-  </p>
+<div class="splash">
+  <section class="container">
+    <div class="row vertical">
+      <div class="five columns">
+        <h1 class="large">Self-hosted newsletter &amp; mailing list manager</h1>
+        <h3>
+          Performance and features packed into a single binary.
+          <strong>Free and open source.</strong>
+        </h3>
+        <br />
+        <p>
+          <a href="#download" class="button">Download</a>
+        </p>
+      </div>
+      <div class="seven columns">
+        <div class="confetti">
+          <img class="s1" src="static/images/s1.png" />
+          <img class="s2" src="static/images/s2.png" />
+          <img class="s3" src="static/images/s3.png" />
+          <img class="s4" src="static/images/s4.png" />
+          <img class="box" src="{{ .Site.BaseURL }}static/images/splash.png" alt="listmonk screenshot" />
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="container">
+  <section id="download" class="box">
+    <h1>Download</h1>
+    <p>
+      The latest version is <strong>{{ .Page.Site.Data.github.version }}</strong>
+      released on {{ .Page.Site.Data.github.date | dateFormat "02 Jan 2006" }}.
+    </p>
+
+    <div class="row">
+      <div class="five columns">
+        <h3>Binary</h3>
+        <ul>
+          <li class="download-links">Download the binary &rarr;
+            {{ range.Page.Site.Data.github.assets }}
+              <a href="{{ .url }}">{{ .name | title }}</a>
+            {{ end }}
+          </li>
+          <li>
+            <code>./listmonk --new-config</code> to generate config.toml. Then, edit the file.
+          </li>
+          <li><code>./listmonk --install</code> to setup the Postgres DB (or <code>--upgrade</code> to upgrade an existing DB).</li>
+          <li>Run <code>./listmonk</code> and visit <code>http://localhost:9000</code></li>
+        </ul>
+      </div>
+      <div class="one column">&nbsp;</div>
+      <div class="five columns">
+        <h3>Docker</h3>
+        <p><code>listmonk/listmonk:latest</code></p>
+        <p>
+          Use the sample <a href="https://github.com/knadh/listmonk/blob/master/docker-compose.yml">docker-compose.yml</a> 
+          to run listmonk and Postgres DB with docker-compose as follows:
+        </p>
+        <h4>Demo</h4>
+        <p><code>docker-compose up -d demo-db demo-app</code> (DO NOT use this demo setup in production.)</p>
+
+        <h4>Production setup</h4>
+        <ul>
+          <li><code>docker-compose up db</code> to run the Postgres DB.</li>
+          <li><code>docker-compose run --rm app ./listmonk --install</code>
+            to setup the DB (or <code>--upgrade</code> to upgrade an existing DB).</li>
+          <li>Run <code>docker-compose up app</code> and visit http://localhost:9000</li>
+        </ul>
+        <p><a href="/docs/installation">More &rarr;</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="lists feature">
+    <div class="row">
+      <div class="one column">&nbsp;</div>
+      <div class="six columns">
+        <div class="confetti">
+          <img class="s1" src="static/images/s1.png" />
+          <img class="s2" src="static/images/s2.png" />
+          <img class="box" src="static/images/lists.png" alt="Screenshot of list management feature" />
+        </div>
+      </div>
+      <div class="four columns">
+        <h1>Lists</h1>
+        <p>
+          Manage millions of subscribers across many single and double opt-in lists
+          with custom JSON attributes for each subscriber.
+          Segment subscribers with SQL expressions.
+        </p>
+        <p>Use the super fast bulk importer or use HTTP/JSON APIs or interact with the simple
+          table schema to integrate external CRMs and subscriber databases.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="templating feature">
+    <div class="row">
+      <div class="one column">&nbsp;</div>
+      <div class="four columns">
+        <h1>Templating</h1>
+        <p>
+          Create powerful, dynamic e-mail templates with the <a href="https://golang.org/pkg/text/template/">Go templating language</a>.
+          Use template expressions and logic in subject lines and content with
+          the richtext editor or work with raw syntax-highlighted HTML.</p>
+      </div>
+      <div class="six columns">
+        <div class="confetti">
+          <img class="s3" src="static/images/s3.png" />
+          <img class="box" src="static/images/templating.png" alt="Screenshot of templating feature" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="performance feature">
+    <div class="row">
+      <div class="one column">&nbsp;</div>
+      <div class="six columns">
+        <div class="confetti">
+          <img class="s1" src="static/images/s1.png" />
+          <img class="box" src="static/images/smtp.png" alt="Screenshot of performance features" />
+        </div>
+      </div>
+      <div class="four columns">
+        <h1>Performance</h1>
+        <p>
+          Highly configurable multi-threaded, high throughput multi-SMTP e-mail queues for super fast campaign delivery.
+          Single binary application with nominal CPU and memory footprint that runs everywhere.
+          The only dependency is a Postgres database.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="media feature">
+    <div class="row">
+      <div class="one column">&nbsp;</div>
+      <div class="four columns">
+        <h1>Media</h1>
+        <p>Use the media manager to upload and link images in e-mail campaigns
+          on the server's filesystem or S3. WebDav support coming soon.</p>
+      </div>
+      <div class="six columns">
+        <div class="confetti">
+          <img class="s2" src="static/images/s2.png" />
+          <img class="box" src="static/images/media.png" alt="Screenshot of media feature" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="privacy feature">
+    <div class="row">
+      <div class="two columns">&nbsp;</div>
+      <div class="four columns">
+        <h1>Privacy</h1>
+        <p>
+          Allow subscribers to permanantely blocklist themselves, export all the data
+          associated with their profile including clicks and views, and to wipe all
+          their data in a single click.
+        </p>
+      </div>
+      <div class="four columns">
+        <img class="box" src="static/images/privacy.png" alt="Screenshot of privacy features" />
+      </div>
+    </div>
+  </section>
+
+  <h1 class="large center">and much more &hellip;</h1>
 
   <div class="center">
-    <p class="download">
-      <strong>Download</strong> ({{ .Page.Site.Data.github.version }},
-      {{ .Page.Site.Data.github.date | dateFormat "02 Jan 2006" }})
-
-      {{ range.Page.Site.Data.github.assets }}
-      <a href="{{ .url }}">{{ .name | title }}</a>
-      {{ end }}
-
-      <a href="https://github.com/knadh/listmonk#running-on-docker">Docker</a>
-    </p>
-    <p>
-      <span class="notice"
-        >listmonk is alpha software under active development and may change and
-        break. Use with caution.</span
-      >
-    </p>
+    <br />
+    <a href="#download" class="button">Download</a>
   </div>
-</section>
 
-<section class="features">
-  <div class="row">
-    <div class="four columns">
-      <h2>Multiple lists</h2>
-      Create multiple mailing lists with millions of subscribers with custom
-      attributes for each subscriber.
+  <section class="banner">
+    <div class="row">
+      <div class="two columns">&nbsp;</div>
+      <div class="eight columns">
+        <div class="confetti">
+          <img class="s2" src="static/images/s2.png" />
+          <div class="box">
+            <h1>Developers</h1>
+            <p>
+              listmonk is a free and open source software licensed under AGPLv3.
+              If you are interested in contributing, check out the <a href="https://github.com/knadh/listmonk">GitHub repository</a>
+              and refer to the <a href="https://github.com/knadh/listmonk/wiki/Developer-setup">developer setup</a>.
+              The backend is written in Go and the frontend is Vue with Buefy for UI. 
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="two columns">&nbsp;</div>
     </div>
-    <div class="four columns">
-      <h2>Segmentation</h2>
-      Write ad-hoc SQL queries to query subscribers on their attributes to
-      segment and send ad-hoc campaigns.
-    </div>
-    <div class="four columns">
-      <h2>Templating</h2>
-      In addition to the WYSIWYG editor, create powerful, dynamic e-mail
-      templates with Go templating.
-    </div>
-  </div>
-  <div class="row">
-    <div class="four columns">
-      <h2>Admin</h2>
-      Easy to use admin dashboard for end-to-end management and reporting and
-      analytics.
-    </div>
-    <div class="four columns">
-      <h2>APIs</h2>
-      REST-like HTTP/JSON APIs to automate everything, including bulk import and
-      synchronisation of subscribers from external applications.
-    </div>
-    <div class="four columns">
-      <h2>High performance</h2>
-      Multi-threaded, high throughput multi-SMTP e-mail queues for super fast
-      campaign delivery.
-    </div>
-  </div>
-</section>
-
-<section>
-  <h2 id="getting-started">Getting started</h2>
-  <ul>
-    <li>Download the listmonk binary for your platform</li>
-    <li>
-      Run <code>./listmonk --new-config</code> to generate a sample config.toml
-      and add your configuration (SMTP and Postgres DB credentials primarily).
-    </li>
-    <li>Run <code>./listmonk --install</code> to setup the DB.</li>
-    <li>Visit <code>http://localhost:9000</code></li>
-    <li>
-      Since there is no user auth yet, it's best to put listmonk behind a proxy
-      like Nginx and setup basicauth on all endpoints except for the few
-      endpoints that need to be public. Here is a
-      <a href="https://github.com/knadh/listmonk/wiki/Production-Nginx-config"
-        >sample nginx config</a
-      >
-      for production use.
-    </li>
-  </ul>
-</section>
-
-<section>
-  <h2>Developers</h2>
-  <p>
-    listmonk is free, open source software licensed under AGPLv3. There are
-    several essential features such as user auth/management and bounce tracking
-    that are currently missing. Contributions are welcome.
-  </p>
-  <p>
-    The backend is written in Go and the frontend is in React with Ant Design
-    for UI. See
-    <a href="https://github.com/knadh/listmonk/wiki/Developer-setup"
-      >developer setup</a
-    >
-    to get started.
-  </p>
-</section>
+  </section>
+</div>
 
 {{ partial "footer.html" }}

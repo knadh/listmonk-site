@@ -11,7 +11,7 @@ These are the fields in the subscriber database that can be queried.
 | `subscribers.uuid`       | The randomly generated unique ID of the subscriber                                                  |
 | `subscribers.email`      | E-mail ID of the subscriber                                                                         |
 | `subscribers.name`       | Name of the subscriber                                                                              |
-| `subscribers.status`     | Status of the subscriber (enabled, disabled, blacklisted)                                           |
+| `subscribers.status`     | Status of the subscriber (enabled, disabled, blocklisted)                                           |
 | `subscribers.attribs`    | Map of arbitrary attributes represented as JSON. Accessed via the `->` and `->>` Postgres operator. |
 | `subscribers.created_at` | Timestamp when the subscriber was first added                                                       |
 | `subscribers.updated_at` | Timestamp when the subscriber was modified                                                          |
@@ -62,8 +62,8 @@ subscribers.email LIKE 'John%'
 #### Multiple conditions
 
 ```sql
--- Find all Johns who have been blacklisted.
-subscribers.email LIKE 'John%' AND status = 'blacklisted'
+-- Find all Johns who have been blocklisted.
+subscribers.email LIKE 'John%' AND status = 'blocklisted'
 ```
 
 #### Querying attributes
@@ -80,12 +80,12 @@ subscribers.attribs->>'city' = 'Bengaluru' AND
 #### Querying nested attributes
 
 ```sql
--- Find all blacklisted subscribers who like to drink tea, can code Python
+-- Find all blocklisted subscribers who like to drink tea, can code Python
 -- and prefer coding Go.
 --
 -- The -> operator returns the value as a structure. Here, the "languages" field
 -- The ? operator checks for the existence of a value in a list.
-subscribers.status = 'blacklisted' AND
+subscribers.status = 'blocklisted' AND
     (subscribers.attribs->>'likes_tea')::BOOLEAN = true AND
     subscribers.attribs->'stack'->'languages' ? 'python' AND
     subscribers.attribs->'stack'->>'preferred_language' = 'go'
