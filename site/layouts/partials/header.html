@@ -6,6 +6,7 @@
   <meta name="description" content="{{with .Description }}{{ . }}{{else}}Send e-mail campaigns from a powerful dashboard. High performance and features packed into one app.{{end}}" />
   <meta name="keywords" content="{{ if .Keywords }}{{ range .Keywords }}{{ . }}, {{ end }}{{else if isset .Params "tags" }}{{ range .Params.tags }}{{ . }}, {{ end }}{{end}}">
   <link rel="canonical" href="{{ .Permalink }}">
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,700" rel="stylesheet">
   <link href="{{ .Site.BaseURL }}static/base.css" rel="stylesheet" type="text/css" />
   <link href="{{ .Site.BaseURL }}static/style.css" rel="stylesheet" type="text/css" />
 
@@ -22,7 +23,7 @@
   {{ end }}
 </head>
 <body>
-<div id="wrap" class="container">
+<div class="container">
   <header class="header">
     <div class="row">
       <div class="logo six columns">
@@ -39,3 +40,4 @@
       </nav>
     </div>
   </header>
+</div>

@@ -1,16 +1,23 @@
 {{ partial "header.html" . }}
-<section class="splash center">
-  <h1><span>Self-hosted newsletter + mailing list manager</span></h1>
-  <h3>
-    Performance and features packed into a single binary
-  </h3>
-  <p>
-    <img
-      src="{{ .Site.BaseURL }}static/images/splash.png"
-      alt="listmonk dashboard"
-    />
-  </p>
-
+<div class="splash">
+  <section class="container">
+    <div class="row">
+      <div class="six columns">
+        <h1>Self-hosted newsletter &amp; mailing list manager</h1>
+          <h3>
+            Free and Open Source.
+            Performance and features packed into a single binary.
+          </h3>
+        </div>
+        <div class="six columns">
+          <img
+          src="{{ .Site.BaseURL }}static/images/splash.png"
+          alt="listmonk dashboard"
+          />
+        </div>
+    </div>
+  </section>
+</div>
   <div class="center">
     <p class="download">
       <strong>Download</strong> ({{ .Page.Site.Data.github.version }},
@@ -29,82 +36,84 @@
       >
     </p>
   </div>
-</section>
 
-<section class="features">
-  <div class="row">
-    <div class="four columns">
-      <h2>Multiple lists</h2>
-      Create multiple mailing lists with millions of subscribers with custom
-      attributes for each subscriber.
-    </div>
-    <div class="four columns">
-      <h2>Segmentation</h2>
-      Write ad-hoc SQL queries to query subscribers on their attributes to
-      segment and send ad-hoc campaigns.
-    </div>
-    <div class="four columns">
-      <h2>Templating</h2>
-      In addition to the WYSIWYG editor, create powerful, dynamic e-mail
-      templates with Go templating.
-    </div>
-  </div>
-  <div class="row">
-    <div class="four columns">
-      <h2>Admin</h2>
-      Easy to use admin dashboard for end-to-end management and reporting and
-      analytics.
-    </div>
-    <div class="four columns">
-      <h2>APIs</h2>
-      REST-like HTTP/JSON APIs to automate everything, including bulk import and
-      synchronisation of subscribers from external applications.
-    </div>
-    <div class="four columns">
-      <h2>High performance</h2>
-      Multi-threaded, high throughput multi-SMTP e-mail queues for super fast
-      campaign delivery.
-    </div>
-  </div>
-</section>
 
-<section>
-  <h2 id="getting-started">Getting started</h2>
-  <ul>
-    <li>Download the listmonk binary for your platform</li>
-    <li>
-      Run <code>./listmonk --new-config</code> to generate a sample config.toml
-      and add your configuration (SMTP and Postgres DB credentials primarily).
-    </li>
-    <li>Run <code>./listmonk --install</code> to setup the DB.</li>
-    <li>Visit <code>http://localhost:9000</code></li>
-    <li>
-      Since there is no user auth yet, it's best to put listmonk behind a proxy
-      like Nginx and setup basicauth on all endpoints except for the few
-      endpoints that need to be public. Here is a
-      <a href="https://github.com/knadh/listmonk/wiki/Production-Nginx-config"
-        >sample nginx config</a
+<div class="container">
+  <section class="features">
+    <div class="row">
+      <div class="four columns">
+        <h2>Multiple lists</h2>
+        Create multiple mailing lists with millions of subscribers with custom
+        attributes for each subscriber.
+      </div>
+      <div class="four columns">
+        <h2>Segmentation</h2>
+        Write ad-hoc SQL queries to query subscribers on their attributes to
+        segment and send ad-hoc campaigns.
+      </div>
+      <div class="four columns">
+        <h2>Templating</h2>
+        In addition to the WYSIWYG editor, create powerful, dynamic e-mail
+        templates with Go templating.
+      </div>
+    </div>
+    <div class="row">
+      <div class="four columns">
+        <h2>Admin</h2>
+        Easy to use admin dashboard for end-to-end management and reporting and
+        analytics.
+      </div>
+      <div class="four columns">
+        <h2>APIs</h2>
+        REST-like HTTP/JSON APIs to automate everything, including bulk import and
+        synchronisation of subscribers from external applications.
+      </div>
+      <div class="four columns">
+        <h2>High performance</h2>
+        Multi-threaded, high throughput multi-SMTP e-mail queues for super fast
+        campaign delivery.
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 id="getting-started">Getting started</h2>
+    <ul>
+      <li>Download the listmonk binary for your platform</li>
+      <li>
+        Run <code>./listmonk --new-config</code> to generate a sample config.toml
+        and add your configuration (SMTP and Postgres DB credentials primarily).
+      </li>
+      <li>Run <code>./listmonk --install</code> to setup the DB.</li>
+      <li>Visit <code>http://localhost:9000</code></li>
+      <li>
+        Since there is no user auth yet, it's best to put listmonk behind a proxy
+        like Nginx and setup basicauth on all endpoints except for the few
+        endpoints that need to be public. Here is a
+        <a href="https://github.com/knadh/listmonk/wiki/Production-Nginx-config"
+          >sample nginx config</a
+        >
+        for production use.
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Developers</h2>
+    <p>
+      listmonk is free, open source software licensed under AGPLv3. There are
+      several essential features such as user auth/management and bounce tracking
+      that are currently missing. Contributions are welcome.
+    </p>
+    <p>
+      The backend is written in Go and the frontend is in React with Ant Design
+      for UI. See
+      <a href="https://github.com/knadh/listmonk/wiki/Developer-setup"
+        >developer setup</a
       >
-      for production use.
-    </li>
-  </ul>
-</section>
-
-<section>
-  <h2>Developers</h2>
-  <p>
-    listmonk is free, open source software licensed under AGPLv3. There are
-    several essential features such as user auth/management and bounce tracking
-    that are currently missing. Contributions are welcome.
-  </p>
-  <p>
-    The backend is written in Go and the frontend is in React with Ant Design
-    for UI. See
-    <a href="https://github.com/knadh/listmonk/wiki/Developer-setup"
-      >developer setup</a
-    >
-    to get started.
-  </p>
-</section>
+      to get started.
+    </p>
+  </section>
+</div>
 
 {{ partial "footer.html" }}
