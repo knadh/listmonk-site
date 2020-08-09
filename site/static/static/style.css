@@ -144,6 +144,7 @@ nav {
   .splash .vertical {
     display: flex;
     align-items: center;
+    position: relative;
   }
   .splash h1 {
     font-weight: 700;
@@ -160,7 +161,7 @@ nav {
 .confetti {
   position: relative;
 }
-  .confetti .s1, .confetti .s2, .confetti .s3, .confetti .s4 {
+  .confetti .s1, .confetti .s2, .confetti .s3 {
     position: absolute;
   }
   .confetti .s1 {
@@ -177,11 +178,6 @@ nav {
     z-index: 30;
     left: 15%;
     bottom: 0;
-  }
-  .confetti .s4 {
-    z-index: 30;
-    left: -75%;
-    top: 0;
   }
   .confetti .box {
     position: relative;
@@ -237,7 +233,10 @@ nav {
   }
   .splash .vertical {
     display: block;
-  } 
+  }
+  .splash .s4 {
+    display: none;
+  }
   .feature .row {
     display: block;
   }
