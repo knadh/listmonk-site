@@ -117,7 +117,7 @@ img.box {
 nav {
   text-align: right;
 }
-  nav a:not(:first-child) {
+  nav .item:not(:first-child) {
     margin: 0 0 0 40px;
   }
   nav .github img {
@@ -130,7 +130,6 @@ nav {
     height: 30px;
     width: 150px;
     vertical-align: middle;
-    margin-left: 40px;
   }
 
 
@@ -238,6 +237,17 @@ nav {
     display: none;
   }
   .feature .row {
+    display: block;
+  }
+}
+@media screen and (max-width: 420px) {
+  nav .item:not(:first-child) {
+    margin: 0 0 0 15px;
+  }
+}
+@media screen and (max-width: 338px) {
+  nav .item {
+    margin: 0 0 10px 0 !important;
     display: block;
   }
 }
