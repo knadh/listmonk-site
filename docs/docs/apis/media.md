@@ -10,7 +10,7 @@ Gets an uploaded media file.
 
 ##### Example Request
 ```shell
-curl --location --request GET 'http://localhost:9000/api/media' \
+curl -u "username:username" -X GET 'http://localhost:9000/api/media' \
 --header 'Content-Type: multipart/form-data; boundary=--------------------------093715978792575906250298'
 ```
 
@@ -58,7 +58,7 @@ file       |  Request body         |  Media file       |     Required           
 
 ##### Example Request
 ```shell 
-curl --location --request POST 'http://localhost:9000/api/media' \
+curl -u "username:username" -X POST 'http://localhost:9000/api/media' \
 --header 'Content-Type: multipart/form-data; boundary=--------------------------183679989870526937212428' \
 --form 'file=@/Users/username/Desktop/Media file'
 ```
@@ -86,7 +86,7 @@ Name            |   Parameter Type        | Data Type          | Required/Option
 
 ##### Example Request
 ```shell
-curl --location --request DELETE 'http://localhost:9000/api/media/1'
+curl -u "username:username" -X DELETE 'http://localhost:9000/api/media/1'
 ```
 
 

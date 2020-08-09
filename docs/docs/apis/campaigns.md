@@ -19,7 +19,7 @@ Gets all campaigns.
 ##### Example Request
 
 ```shell
- curl --location --request GET 'http://localhost:9000/api/campaigns'
+ curl -u "username:password" -X GET 'http://localhost:9000/api/campaigns'
 ```
 
 ##### Example Response
@@ -81,7 +81,7 @@ Name        | Parameter Type    | Data Type    | Required/Optional    | Descript
 ##### Example Request
 
 ``` shell
-curl --location --request GET 'http://localhost:9000/api/campaigns/1'
+curl -u "username:password" -X GET 'http://localhost:9000/api/campaigns/1'
 ```
 
 ##### Example Response
@@ -140,7 +140,7 @@ Name        | Parameter Type    | Data Type    | Required/Optional    | Descript
 ##### Example Request
 
 ```shell
-curl --location --request GET 'http://localhost:9000/api/campaigns/1/preview'
+curl -u "username:password" -X GET 'http://localhost:9000/api/campaigns/1/preview'
 ```
 
 ##### Example Response
@@ -164,7 +164,7 @@ campaign_id | Query Parameters | Number     | Required            | The id value
 ##### Example Request
 
 ``` shell
-curl --location --request GET 'http://localhost:9000/api/campaigns/running/stats?campaign_id=1'
+curl -u "username:password" -X GET 'http://localhost:9000/api/campaigns/running/stats?campaign_id=1'
 ```
 
 ##### Example Response
@@ -197,7 +197,7 @@ status            | Request Body            | String                    | Requir
 ##### Example Request
 
 ```shell
-curl --location --request PUT 'http://localhost:9000/api/campaigns/1/status' \
+curl -u "username:password" -X PUT 'http://localhost:9000/api/campaigns/1/status' \
 --header 'Content-Type: multipart/form-data; boundary=--------------------------047372886665819311890787' \
 --form 'status=scheduled'
 ```
@@ -254,7 +254,7 @@ Name     |  Parameter Type    | Data Type      | Required/Optional   | Descripti
 ##### Example Request
 
 ```shell
-curl --location --request DELETE 'http://localhost:9000/api/campaigns/34'
+curl -u "username:password" -X DELETE 'http://localhost:9000/api/campaigns/34'
 ```
 
 ##### Example Response

@@ -2,6 +2,8 @@
 
 All features that are available on the listmonk dashboard are also available as REST-like HTTP APIs that can be interacted with directly. Request and response bodies are JSON. This allows easy scripting of listmonk and integration with other systems, for instance, synchronisation with external subscriber databases.
 
+API requests require BasicAuth authentication with the admin credentials.
+
 !!! warning "Work in progress"
 
 > The API section is a work in progress. There are a large number of API calls that are yet to be documented.

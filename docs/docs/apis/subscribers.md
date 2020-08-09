@@ -222,7 +222,7 @@ Gets subscribers with an SQL expression.
 
 ##### Example Request
 ```shell
-curl -X GET  'http://localhost:9000/api/subscribers' \
+curl -X GET 'http://localhost:9000/api/subscribers' \
     -d 'page=1' \
     -d "query=subscribers.name LIKE 'Test%' AND subscribers.attribs->>'city' = 'Bengaluru'"
 ```
@@ -328,7 +328,7 @@ Name  | Parameter type | Data type  | Required/Optional | Description
 ##### Example Request 
 
 ```shell
-curl --location --request PUT 'http://localhost:9000/api/subscribers/9/blocklist'
+curl -u "username:username" -X PUT 'http://localhost:9000/api/subscribers/9/blocklist'
 ```
 
 ##### Example Response 
@@ -344,7 +344,7 @@ Blocklists subscribers with an arbitrary sql expression.
 
 ##### Example Request
 ``` shell
-curl --location --request PUT 'http://localhost:9000/api/subscribers/query/blocklist' \
+curl -u "username:username" -X PUT 'http://localhost:9000/api/subscribers/query/blocklist' \
 --data-raw '"query=subscribers.name LIKE '\''John Doe'\'' AND subscribers.attribs->>'\''city'\'' = '\''Bengaluru'\''"'
 ```
 
@@ -371,7 +371,7 @@ name    | Parameter type   | Data type   |   Required/Optional    |  Description
 ##### Example  Request 
 
 ``` shell
-curl --location --request DELETE 'http://localhost:9000/api/subscribers/9'
+curl -u "username:username" -X DELETE 'http://localhost:9000/api/subscribers/9'
 ```
 
 ##### Example Response 
@@ -394,7 +394,7 @@ id      | Query parameters    | Number         |  Required             | The id 
 ##### Example Request
 
 ``` shell
-curl --location --request DELETE 'http://localhost:9000/api/subscribers?id=10&id=11'
+curl -u "username:username" -X DELETE 'http://localhost:9000/api/subscribers?id=10&id=11'
 ```
 
 ##### Example Response 
@@ -412,7 +412,7 @@ Deletes subscribers with an arbitrary SQL expression.
 
 ##### Example Request
 ``` shell
-curl --location --request POST 'http://localhost:9000/api/subscribers/query/delete' \
+curl -u "username:username" -X POST 'http://localhost:9000/api/subscribers/query/delete' \
 --data-raw '"query=subscribers.name LIKE '\''John Doe'\'' AND subscribers.attribs->>'\''city'\'' = '\''Bengaluru'\''"'
 ```
 

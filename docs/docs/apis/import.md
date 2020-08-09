@@ -13,7 +13,7 @@ Gets a import statistics.
 
 ##### Example Request 
 ```shell 
-curl --location --request GET 'http://localhost:9000/api/import/subscribers'
+curl -u "username:username" -X GET 'http://localhost:9000/api/import/subscribers'
 ```
 
 ##### Example Response 
@@ -33,7 +33,7 @@ Gets a import statistics.
 
 ##### Example Request 
 ```shell
-curl --location --request GET 'http://localhost:9000/api/import/subscribers/logs'
+curl -u "username:username" -X GET 'http://localhost:9000/api/import/subscribers/logs'
 ```
 
 ##### Example Response
@@ -50,7 +50,7 @@ Stops and deletes a import.
 
 ##### Example Request
 ```shell
-curl --location --request DELETE 'http://localhost:9000/api/import/subscribers' 
+curl -u "username:username" -X DELETE 'http://localhost:9000/api/import/subscribers' 
 ```
 
 ##### Example Response

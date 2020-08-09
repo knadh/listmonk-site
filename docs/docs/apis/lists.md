@@ -13,7 +13,7 @@ Gets all lists.
 
 ##### Example Request
 ```shell
-curl --location --request GET 'http://localhost:9000/api/lists'
+curl -u "username:username" -X GET 'http://localhost:9000/api/lists'
 ```
 
 ##### Example Response
@@ -91,7 +91,7 @@ Name    | Parameter type     | Data type   | Required/Optional   | Description
 
 ##### Example Request
 ``` shell
-curl --location --request GET 'http://localhost:9000/api/lists/5'
+curl -u "username:username" -X GET 'http://localhost:9000/api/lists/5'
 ```
 
 ##### Example Response
@@ -121,7 +121,7 @@ type    | Request body    | string      | Required           | List type, can be
 
 ##### Example Request
 ``` shell
-curl --location --request POST 'http://localhost:9000/api/lists'
+curl -u "username:username" -X POST 'http://localhost:9000/api/lists'
 ```
 
 ##### Example Response
@@ -154,7 +154,7 @@ type      | Request body       | string       | Optional              | List typ
 
 ##### Example Request
 ```shell
-curl --location --request PUT 'http://localhost:9000/api/lists/5' \
+curl -u "username:username" -X PUT 'http://localhost:9000/api/lists/5' \
 --form 'name=modified test list' \
 --form 'Type=private'
 ```

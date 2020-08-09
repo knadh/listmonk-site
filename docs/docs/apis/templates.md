@@ -16,7 +16,7 @@ Gets all templates.
 
 ##### Example Request
  ```shell
- curl --location --request GET 'http://localhost:9000/api/templates'
+ curl -u "username:username" -X GET 'http://localhost:9000/api/templates'
  ```
 
 ##### Example Response
@@ -45,7 +45,7 @@ Name        |   Parameter Type       | Data Type           | Required/Optional  
 
 ##### Example Request
 ``` shell
-curl --location --request GET 'http://localhost:9000/api/templates/1'
+curl -u "username:username" -X GET 'http://localhost:9000/api/templates/1'
 ```
 
 ##### Example Response
@@ -72,7 +72,7 @@ Name        |  Parameter Type      | Data  Type      | Required/Optional      | 
 
 ##### Example Request
 ``` shell
-curl --location --request GET 'http://localhost:9000/api/templates/1/preview'
+curl -u "username:username" -X GET 'http://localhost:9000/api/templates/1/preview'
 ```
 
 ##### Example Response
@@ -102,7 +102,7 @@ Name        |   Parameter Type       | Data Type           | Required/Optional  
 
 ##### Example Request
 ``` shell
-curl --location --request PUT 'http://localhost:9000/api/templates/1/default'
+curl -u "username:username" -X PUT 'http://localhost:9000/api/templates/1/default'
 ```
 
 ##### Example Response
@@ -131,7 +131,7 @@ Name        |   Parameter Type       | Data Type           | Required/Optional  
 
 ##### Example Request
 ``` shell
-curl --location --request DELETE 'http://localhost:9000/api/templates/35'
+curl -u "username:username" -X DELETE 'http://localhost:9000/api/templates/35'
 ```
 
 ##### Example Response
