@@ -11,4 +11,4 @@ listmonk is a self-hosted, full fledged, high performance mailing list and newsl
 [![listmonk screenshot](https://user-images.githubusercontent.com/547147/89733057-87566580-da70-11ea-8160-855f6f046a55.png)](https://listmonk.app)
 
 ## Developers
-listmonk is a free and open source software licensed under AGPLv3. If you are interested in contributing, check out the [GitHub repository](https://github.com/knadh/listmonk) and refer to the [developer setup](/developer-setup). The backend is written in Go and the frontend is Vue with Buefy for UI. 
+listmonk is a free and open source software licensed under AGPLv3. If you are interested in contributing, check out the [GitHub repository](https://github.com/knadh/listmonk) and refer to the [developer setup](developer-setup). The backend is written in Go and the frontend is Vue with Buefy for UI. 
