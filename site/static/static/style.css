@@ -3,7 +3,7 @@ body {
   font-size: 16px;
   font-weight: 400;
   line-height: 28px;
-  color: #111;
+  color: #666;
   overflow-x: hidden;
 }
 
@@ -15,6 +15,7 @@ h4,
 h5 {
   font-weight: 600;
   margin: 15px 0 15px 0;
+  color: #111;
 }
 h1 {
   font-size: 2.2em;
@@ -47,8 +48,8 @@ a:hover {
   color: #fff;
 }
 code {
-  background: #f6f6f6;
-  color: #777;
+  background: #fff;
+  color: #999;
   padding: 0 3px;
   border-radius: 2px;
 }
