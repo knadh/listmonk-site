@@ -32,8 +32,8 @@ h3 {
   font-size: 1.6em;
   line-height: 1.6em;
 }
-section {
-  margin-bottom: 100px;
+section:not(:last-child) {
+  margin-bottom: 10rem;
 }
 a {
   color: #7f2aff;
@@ -134,7 +134,7 @@ nav {
 
 
 .splash {
-  min-height: 76vh;
+  min-height: 80vh;
 }
   .splash .container {
     width: 85vw;
@@ -163,6 +163,9 @@ nav {
   .confetti .s1, .confetti .s2, .confetti .s3 {
     position: absolute;
   }
+  .confetti.light .s1, .confetti.light .s2, .confetti.light .s3 {
+    opacity: 0.30;
+  }
   .confetti .s1 {
     left: -35px;
     top: 20%;
@@ -184,8 +187,9 @@ nav {
   }
 
 #download {
-  padding: 30px;
-  border-radius: 3px;
+  background: #f9f9f9;
+  padding: 30px 0;
+  border-width: 1px 0;
 }
   #download .download-links a:not(:last-child) {
     display: inline-block;
@@ -209,7 +213,7 @@ nav {
 .footer {
   border-top: 1px solid #eee;
   padding-top: 30px;
-  margin: 30px 0;
+  margin: 90px 0 30px 0;
   color: #777;
 }
 
@@ -224,6 +228,9 @@ nav {
   }
 }
 @media screen and (max-width: 1010px) {
+  .splash .container {
+    padding-right: 5vw;
+  }
   .header {
     padding: 30px 0 0 0;
   }
@@ -238,6 +245,10 @@ nav {
   }
   .feature .row {
     display: block;
+  }
+
+  section:not(:last-child) {
+    margin-bottom: 3rem;
   }
 }
 @media screen and (max-width: 420px) {

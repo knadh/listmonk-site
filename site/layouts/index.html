@@ -26,8 +26,8 @@
   </section>
 </div>
 
-<div class="container">
-  <section id="download" class="box">
+<section id="download">
+  <div class="container">
     <h1>Download</h1>
     <p>
       The latest version is <strong>{{ .Page.Site.Data.github.version }}</strong>
@@ -35,7 +35,7 @@
     </p>
 
     <div class="row">
-      <div class="five columns">
+      <div class="six columns">
         <h3>Binary</h3>
         <ul>
           <li class="download-links">Download the binary &rarr;
@@ -50,8 +50,7 @@
           <li>Run <code>./listmonk</code> and visit <code>http://localhost:9000</code></li>
         </ul>
       </div>
-      <div class="one column">&nbsp;</div>
-      <div class="five columns">
+      <div class="six columns">
         <h3>Docker</h3>
         <p><code>listmonk/listmonk:latest</code></p>
         <p>
@@ -71,13 +70,15 @@
         <p><a href="/docs/installation">More &rarr;</a></p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
+<div class="container">
   <section class="lists feature">
     <div class="row">
       <div class="one column">&nbsp;</div>
       <div class="six columns">
-        <div class="confetti">
+        <div class="confetti light">
           <img class="s1" src="static/images/s1.png" />
           <img class="s2" src="static/images/s2.png" />
           <img class="box" src="static/images/lists.png" alt="Screenshot of list management feature" />
@@ -108,7 +109,7 @@
           the richtext editor or work with raw syntax-highlighted HTML.</p>
       </div>
       <div class="six columns">
-        <div class="confetti">
+        <div class="confetti light">
           <img class="s3" src="static/images/s3.png" />
           <img class="box" src="static/images/templating.png" alt="Screenshot of templating feature" />
         </div>
@@ -120,7 +121,7 @@
     <div class="row">
       <div class="one column">&nbsp;</div>
       <div class="six columns">
-        <div class="confetti">
+        <div class="confetti light">
           <img class="s1" src="static/images/s1.png" />
           <img class="box" src="static/images/smtp.png" alt="Screenshot of performance features" />
         </div>
@@ -146,7 +147,7 @@
           on the server's filesystem or S3. WebDav support coming soon.</p>
       </div>
       <div class="six columns">
-        <div class="confetti">
+        <div class="confetti light">
           <img class="s2" src="static/images/s2.png" />
           <img class="box" src="static/images/media.png" alt="Screenshot of media feature" />
         </div>
