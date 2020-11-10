@@ -41,6 +41,7 @@ pages:
   - "Querying and segmenting subscribers": querying-and-segmentation.md
   - "Templating": templating.md
   - "Integrating with external systems": external-integration.md
+  - "Messengers": "messengers.md"
   - "API": apis/apis.md
   - "API / Subscribers": apis/subscribers.md
   - "API / Lists": apis/lists.md
