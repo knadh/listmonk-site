@@ -187,6 +187,9 @@ nav {
   padding: 30px 0;
   border-width: 1px 0;
 }
+  #download .install-steps li {
+    margin-bottom: 15px;
+  }
   #download .download-links a:not(:last-child) {
     display: inline-block;
     margin-right: 15px;

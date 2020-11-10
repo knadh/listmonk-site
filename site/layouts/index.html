@@ -37,18 +37,19 @@
     <div class="row">
       <div class="six columns">
         <h3>Binary</h3>
-        <ul>
-          <li class="download-links">Download the binary &rarr;
+        <ul class="install-steps">
+          <li class="download-links">Download binary:<br />
             {{ range.Page.Site.Data.github.assets }}
               <a href="{{ .url }}">{{ .name | title }}</a>
             {{ end }}
           </li>
           <li>
-            <code>./listmonk --new-config</code> to generate config.toml. Then, edit the file.
+            <code>./listmonk --new-config</code> to generate config.toml. Edit the file.
           </li>
           <li><code>./listmonk --install</code> to setup the Postgres DB (or <code>--upgrade</code> to upgrade an existing DB).</li>
           <li>Run <code>./listmonk</code> and visit http://localhost:9000</li>
         </ul>
+        <p><a href="/docs/installation">More &rarr;</a></p>
       </div>
       <div class="six columns">
         <h3>Docker</h3>
