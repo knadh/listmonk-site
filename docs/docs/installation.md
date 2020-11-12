@@ -3,7 +3,7 @@
 ## Binary
 - Download the [latest release](https://github.com/knadh/listmonk/releases) and extract the listmonk binary.
 - `./listmonk --new-config` to generate config.toml. Then, edit the file.
-- `./listmonk --install` to setup the Postgres DB (or `--upgrade` to upgrade an existing DB. Upgrades are idempotent and running them multiple times have no side effects).
+- `./listmonk --install` to setup the Postgres DB.
 - Run `./listmonk` and visit `http://localhost:9000`.
 
 ## Docker
@@ -15,12 +15,12 @@ Use the sample [docker-compose.yml](https://github.com/knadh/listmonk/blob/maste
 ### Demo
 `docker-compose up -d demo-db demo-app`
 
-The demo does not persist Postgres after the containers are removed. DO NOT use this demo setup in production.
+The demo does not persist Postgres after the containers are removed. **DO NOT** use this demo setup in production.
 
 ### Production
 - `docker-compose up db` to run the Postgres DB.
-- `docker-compose run --rm app ./listmonk --install` to setup the DB (or `--upgrade` to upgrade an existing DB)
-- Run `docker-compose up app` and visit `http://localhost:9000`.
+- `docker-compose run --rm app ./listmonk --install` to setup the DB.
+- Run `docker-compose up app db` and visit `http://localhost:9000`.
 
 ### Mounting a custom config.toml
 To mount a local `config.toml` file, add the following section to `docker-compose.yml`:
