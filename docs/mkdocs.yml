@@ -35,6 +35,7 @@ copyright: "Copyright &copy; 2019, Kailash Nadh."
 pages:
   - "Introduction": index.md
   - "Installation": installation.md
+  - "Upgrade": upgrade.md
   - "Configuration": configuration.md
   - "Developer setup": developer-setup.md
   - "Concepts": concepts.md
