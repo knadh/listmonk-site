@@ -4,7 +4,7 @@ Method     |  Endpoint                                                          
 -----------|----------------------------------------------------------------------|--------------
 `GET`      | [api/import/subscribers](#get-apiimportsubscribers)                  | Gets a import statistics. 
 `GET`      | [api/import/subscribers/logs](#get-apiimportsubscriberslogs)         | Get a import statistics .
-`POST`     | api/import/subscribers                                               | Upload a ZIP file or CSV files to bulk import subscribers. 
+`POST`     | [api/import/subscribers](#post-apiimportsubscribers)                 | Upload a ZIP file or CSV file to bulk import subscribers. 
 `DELETE`   | [api/import/subscribers](#delete-apiimportsubscribers)               | Stops and deletes a import.
 
 
