@@ -1,6 +1,6 @@
 [build]
 publish = "site/publish"
-command = "hugo -s site -d publish --gc --minify && mkdocs build -f docs/mkdocs.yml -d ../site/publish/docs"
+command = "hugo -s site -d publish --gc --minify && mkdocs build -f docs/mkdocs.yml -d ../site/publish/docs && cp -R i18n site/publish/"
 
 [context.production.environment]
 HUGO_VERSION = "0.55.0"
