@@ -1,4 +1,4 @@
-const BASEURL = "https://raw.githubusercontent.com/knadh/listmonk/i18n/i18n/";
+const BASEURL = "https://raw.githubusercontent.com/knadh/listmonk/master/i18n/";
 const BASELANG = "en";
 
 var app = new Vue({
