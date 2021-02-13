@@ -43,6 +43,7 @@ pages:
   - "Templating": templating.md
   - "Integrating with external systems": external-integration.md
   - "Messengers": "messengers.md"
+  - "Internationalization": "i18n.md"
   - "API": apis/apis.md
   - "API / Subscribers": apis/subscribers.md
   - "API / Lists": apis/lists.md
