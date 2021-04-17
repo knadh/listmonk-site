@@ -284,8 +284,9 @@ Name   | Parameter type   | Data type             | Required/Optional           
 email  | Request body     | String                | Required                          | The email address of the new susbcriber.
 name   | Request body     | String                | Required                          | The name of the new subscriber. 
 status | Request body     | String                | Required                          | The status of the new subscriber. Can be enabled, disabled or blocklisted. 
-list   | Request body     | Numbers               | Optional                         | The id value of list to which new subscriber will be added.
+lists   | Request body     | Numbers               | Optional                         | Array of list IDs to subscribe to (marked as `unconfirmed` by default).
 attribs | Request body  | json                    | Optional                         | JSON list containing new subscriber's attributes.
+preconfirm_subscriptions | Request body  | Bool   | Optional                         | If `true`, list subscriptions in the request is marked as `confirmed` and no-optin e-mails are sent for double opt-in lists.
 
 ##### Example Request
 ```shell
