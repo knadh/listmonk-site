@@ -44,3 +44,4 @@ This will mount the local `config.toml` inside the container at `listmonk/config
 ### Note
 - See [configuring with environment variables](configuration).
 - Ensure that both `app` and `db` containers are in running. If the containers are not up, restart them `docker-compose restart app db`.
+- Refer to [this tutorial](https://yasoob.me/posts/setting-up-listmonk-opensource-newsletter-mailing/) for setting up a production instance with Docker + Nginx + LetsEncrypt SSL.
