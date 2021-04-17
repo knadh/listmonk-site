@@ -84,7 +84,7 @@ var app = new Vue({
 
 		onToggleRaw() {
 			if (!this.isRawVisible) {
-				this.rawData = JSON.stringify(this.values, Object.keys(this.values).sort(), 2);
+				this.rawData = JSON.stringify(this.values, Object.keys(this.values).sort(), 4);
 			} else {
 				try {
 					this.loadData(JSON.parse(this.rawData));
