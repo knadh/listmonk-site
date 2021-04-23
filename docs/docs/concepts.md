@@ -46,7 +46,7 @@ A campaign is an e-mail that is sent to one or more lists.
 
 ## Template
 
-A template is a re-usable HTML design that can be used across various campaigns. Most commonly, templates have standard header and footer areas with logos and branding elements, where campaign content is inserted in the middle. listmonk supports [Go template](https://gowebexamples.com/templates/) expressions that lets you create powerful, dynamic HTML templates. [Learn more](templating).
+A template is a re-usable HTML design that can be used across various campaigns. Most commonly, templates have standard header and footer areas with logos and branding elements, where campaign content is inserted in the middle. listmonk supports [Go template](https://gowebexamples.com/templates/) expressions that lets you create powerful, dynamic HTML templates. [Learn more](../templating).
 
 ## Messenger
 
