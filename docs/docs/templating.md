@@ -33,7 +33,7 @@ There are several template functions and expressions that can be used in campaig
 
 | Function                                    | Description                                                                                                                                                    |
 | ------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `{{ Date "2006-01-01" }}`                   | Prints the current datetime for the given format expressed as a [Go date layout](https://medium.com/@Martynas/formatting-date-and-time-in-golang-5816112bf098) |
+| `{{ Date "2006-01-01" }}`                   | Prints the current datetime for the given format expressed as a [Go date layout](https://yourbasic.org/golang/format-parse-string-time-date-example/) |
 | `{{ TrackLink "https://actual-link.com" }}` | Takes a URL and generates a tracking URL over it. For use in campaign bodies and templates.                                                                    |
 | `{{ TrackView }}`                           | Inserts a single tracking pixel. Should only be used once, ideally in the template footer.                                                                     |
 | `{{ UnsubscribeURL }}`                      | Unsubscription URL. Ideal for use in the template footer.                                                                                                      |
