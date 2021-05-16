@@ -2,7 +2,7 @@
 
 A template is a re-usable HTML design that can be used across various campaigns. Most commonly, templates have standard header and footer areas with logos and branding elements, where campaign content is inserted in the middle. listmonk supports Go template expressions that lets you create powerful, dynamic HTML templates.
 
-listmonk supports [Go template](https://gowebexamples.com/templates/) expressions that lets you create powerful, dynamic HTML templates.
+listmonk supports [Go template](https://gowebexamples.com/templates/) expressions that lets you create powerful, dynamic HTML templates. It also integrates 100+ useful [Sprig template functions](https://masterminds.github.io/sprig/).
 
 ## Template functions and expressions
 
@@ -39,6 +39,10 @@ There are several template functions and expressions that can be used in campaig
 | `{{ UnsubscribeURL }}`                      | Unsubscription URL. Ideal for use in the template footer.                                                                                                      |
 | `{{ MessageURL }}`                          | URL to view the hosted version of an e-mail message.                                                                                                           |
 | `{{ OptinURL }}`                            | URL to the double-optin confirmation page.                                                                                                                     |
+
+### Sprig functions
+listmonk integrates the Sprig library that offers 100+ utility functions for working with strings, numbers, dates etc. that can be used in templating. Refer to the [Sprig documentation](https://masterminds.github.io/sprig/) for the full list of functions.
+
 
 ### Example template
 

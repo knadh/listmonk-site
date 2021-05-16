@@ -2,11 +2,7 @@
 
 [![listmonk](images/logo.svg)](https://listmonk.app)
 
-listmonk is a self-hosted, full fledged, high performance mailing list and newsletter manager. It comes as a standalone binary and the only dependency is a Postgres database.
-
-!!! warning "Alpha software"
-
-> listmonk is **alpha** software and may change and break. Use with caution. That said, it has been in active use at [zerodha.com](https://zerodha.com) for several months where it has processed hundreds of campaigns and tens of millions of e-mails.
+listmonk is a self-hosted, high performance mailing list and newsletter manager. It comes as a standalone binary and the only dependency is a Postgres database.
 
 [![listmonk screenshot](https://user-images.githubusercontent.com/547147/89733057-87566580-da70-11ea-8160-855f6f046a55.png)](https://listmonk.app)
 
