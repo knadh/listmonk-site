@@ -19,5 +19,5 @@ Variables in config.toml can also be provided as environment variables prefixed 
 | `LISTMONK_db__database`        | listmonk       |
 | `LISTMONK_db__ssl_mode`        | disable        |
 
-### Customizing public templates
-All the static assets including templates for public pages and system generated e-mails are bundled into the binary. They can be overridden by passing `./listmonk --static-dir=your/custom/path`. To customize, copy the [static directory](https://github.com/knadh/listmonk/tree/master/static) to a local directory, customize the templates, and pass the path to listmonk using the `--static-dir` flag.
+### Customizing system templates
+[Read this](../templating/#system-templates)

@@ -4,30 +4,32 @@ A template is a re-usable HTML design that can be used across various campaigns.
 
 listmonk supports [Go template](https://gowebexamples.com/templates/) expressions that lets you create powerful, dynamic HTML templates. It also integrates 100+ useful [Sprig template functions](https://masterminds.github.io/sprig/).
 
-## Template functions and expressions
+## Campaign templates
+Campaign templates are template exclusively used in an e-mail campaigns. These template are created and managed on the UI under `Campaigns -> Templates`, and are selected when creating new campaigns.
 
-There are several template functions and expressions that can be used in campaign and template bodies. They are written in the form `{{ .Subscriber.Email }}`, that is, the expression between double curly braces `{{` and `}}`.
+
+There are several template functions and expressions that can be used in campaign and template bodies. They are written in the form `{{ .Subscriber.Email }}`, that is, an expression between double curly braces `{{` and `}}`.
 
 ### Subscriber fields
 
-| Expression              | Description                                                                                  |
-| ----------------------- | -------------------------------------------------------------------------------------------- |
-| `.Subscriber.UUID`      | The randomly generated unique ID of the subscriber                                           |
-| `.Subscriber.Email`     | E-mail ID of the subscriber                                                                  |
-| `.Subscriber.Name`      | Name of the subscriber                                                                       |
-| `.Subscriber.FirstName` | First name of the subscriber (automatically extracted from the name)                         |
-| `.Subscriber.LastName`  | Last name of the subscriber (automatically extracted from the name)                          |
-| `.Subscriber.Status`    | Status of the subscriber (enabled, disabled, blocklisted)                                    |
-| `.Subscriber.Attribs`   | Map of arbitrary attributes. Fields can be accessed with `.`, eg: `.Subscriber.Attribs.city` |
-| `.Subscriber.CreatedAt` | Timestamp when the subscriber was first added                                                |
-| `.Subscriber.UpdatedAt` | Timestamp when the subscriber was modified                                                   |
+| Expression                    | Description                                                                                  |
+| ----------------------------- | -------------------------------------------------------------------------------------------- |
+| `{{ .Subscriber.UUID }}`      | The randomly generated unique ID of the subscriber                                           |
+| `{{ .Subscriber.Email }}`     | E-mail ID of the subscriber                                                                  |
+| `{{ .Subscriber.Name }}`      | Name of the subscriber                                                                       |
+| `{{ .Subscriber.FirstName }}` | First name of the subscriber (automatically extracted from the name)                         |
+| `{{ .Subscriber.LastName }}`  | Last name of the subscriber (automatically extracted from the name)                          |
+| `{{ .Subscriber.Status }}`    | Status of the subscriber (enabled, disabled, blocklisted)                                    |
+| `{{ .Subscriber.Attribs }}`   | Map of arbitrary attributes. Fields can be accessed with `.`, eg: `.Subscriber.Attribs.city` |
+| `{{ .Subscriber.CreatedAt }}` | Timestamp when the subscriber was first added                                                |
+| `{{ .Subscriber.UpdatedAt }}` | Timestamp when the subscriber was modified                                                   |
 
 | Expression            | Description                                              |
 | --------------------- | -------------------------------------------------------- |
-| `.Campaign.UUID`      | The randomly generated unique ID of the campaign         |
-| `.Campaign.Name`      | Internal name of the campaign                            |
-| `.Campaign.Subject`   | E-mail subject of the campaign                           |
-| `.Campaign.FromEmail` | The e-mail address from which the campaign is being sent |
+| `{{ .Campaign.UUID }}`      | The randomly generated unique ID of the campaign         |
+| `{{ .Campaign.Name }}`      | Internal name of the campaign                            |
+| `{{ .Campaign.Subject }}`   | E-mail subject of the campaign                           |
+| `{{ .Campaign.FromEmail }}` | The e-mail address from which the campaign is being sent |
 
 ### Functions
 
@@ -120,3 +122,28 @@ Here is a link for you to click that will be tracked.
 ```
 
 The above example uses an `if` condition to show one of two messages depending on the value of a subscriber attribute. Many such dynamic expressions are possible with Go templating expressions.
+
+## System templates
+System templates are used for rendering public user facing pages such as the subscription management page, and in automatically generated system e-mails such as the opt-in confirmation e-mail. These are bundled into listmonk but can be customized by copying the [static directory](https://github.com/knadh/listmonk/tree/master/static) locally, and passing its path to listmonk with the `./listmonk --static-dir=your/custom/path` flag.
+
+### Public pages
+
+| /static/public/        |                                                          |
+|------------------------|--------------------------------------------------------------------|
+| `index.html`             | Base template with the header and footer that all pages use.        |
+| `message.html`           | Generic success / failure message page.                             |
+| `optin.html`             | Opt-in confirmation page.                                           |
+| `subscription.html`      | Subscription management page with options for data export and wipe. |
+| `subscription-form.html` | List selection and subscription form page.                          |
+
+### System e-mails
+
+| /static/email-templates/         |                                                                                                                                    |
+|----------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
+| `base.html`                      | Base template with the header and footer that all system generated e-mails use.                                               |
+| `campaign-status.html`           | E-mail notification that is sent to admins on campaign start, completion etc.                                                      |
+| `import-status.html`             | E-mail notification that is sent to admins on finish of an import job.                                                             |
+| `subscriber-data.html`           | E-mail that is sent to subscribers when they request a full dump of their private data.                                            |
+| `subscriber-optin.html`          | Automatic opt-in confirmation e-mail that is sent to an unconfirmed subscriber when they are added.                                |
+| `subscriber-optin-campaign.html` | E-mail content that's inserted into a campaign body when starting an opt-in campaign from the lists page.                          |
+| `default.tpl`                    | Default campaign template that is created in Campaigns -> Templates when listmonk is first installed. This is not used after that. |
