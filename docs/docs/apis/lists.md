@@ -28,6 +28,7 @@ curl -u "username:username" -X GET 'http://localhost:9000/api/lists'
                 "uuid": "ce13e971-c2ed-4069-bd0c-240e9a9f56f9",
                 "name": "Default list",
                 "type": "public",
+                "optin": "double",
                 "tags": [
                     "test"
                 ],
@@ -40,36 +41,7 @@ curl -u "username:username" -X GET 'http://localhost:9000/api/lists'
                 "uuid": "f20a2308-dfb5-4420-a56d-ecf0618a102d",
                 "name": "get",
                 "type": "private",
-                "tags": [],
-                "subscriber_count": 0
-            },
-            {
-                "id": 3,
-                "created_at": "2020-03-04T21:12:39.702639+01:00",
-                "updated_at": "2020-03-04T21:12:39.702639+01:00",
-                "uuid": "414c4d67-1262-4884-bdac-cb7447d0b952",
-                "name": "list2\n",
-                "type": "public",
-                "tags": [],
-                "subscriber_count": 0
-            },
-            {
-                "id": 4,
-                "created_at": "2020-03-04T21:13:14.830035+01:00",
-                "updated_at": "2020-03-04T21:13:14.830035+01:00",
-                "uuid": "da21f558-ae1c-4235-bebb-f770a8d95a34",
-                "name": "single\n",
-                "type": "public",
-                "tags": [],
-                "subscriber_count": 0
-            },
-            {
-                "id": 5,
-                "created_at": "2020-03-07T06:31:06.072483+01:00",
-                "updated_at": "2020-03-07T06:31:06.072483+01:00",
-                "uuid": "1bb246ab-7417-4cef-bddc-8fc8fc941d3a",
-                "name": "Test list",
-                "type": "public",
+                "optin": "single",
                 "tags": [],
                 "subscriber_count": 0
             }
@@ -104,6 +76,7 @@ curl -u "username:username" -X GET 'http://localhost:9000/api/lists/5'
         "uuid": "1bb246ab-7417-4cef-bddc-8fc8fc941d3a",
         "name": "Test list",
         "type": "public",
+        "optin": "double",
         "tags": [],
         "subscriber_count": 0
     }
@@ -118,6 +91,7 @@ Name    | Parameter type  | Data type   | Required/Optional  | Description
 --------|-----------------|-------------|--------------------|----------------
 name    | Request body    | string      | Required           | The new list name.  
 type    | Request body    | string      | Required           | List type, can be set to Private or Public.
+optin   | Request body    | string      | Required           | `single` or `double` optin.
 
 ##### Example Request
 ``` shell
@@ -150,13 +124,13 @@ Name      |  Parameter type    | Data type    | Required/Optional     | Descript
 `list_id`   | Path parameter     | number       | Required              | The id of the list to be modified.
 name      | Request body       | string       | Optional              | The name which the old name will be modified to.
 type      | Request body       | string       | Optional              | List type, can be set to Private or Public.
-
+optin     | Request body    | string      | Optional           | `single` or `double` optin.
 
 ##### Example Request
 ```shell
 curl -u "username:username" -X PUT 'http://localhost:9000/api/lists/5' \
 --form 'name=modified test list' \
---form 'Type=private'
+--form 'type=private'
 ```
 
 ##### Example Response
@@ -169,9 +143,9 @@ curl -u "username:username" -X PUT 'http://localhost:9000/api/lists/5' \
         "uuid": "1bb246ab-7417-4cef-bddc-8fc8fc941d3a",
         "name": "modified test list",
         "type": "private",
+        "optin": "single",
         "tags": [],
         "subscriber_count": 0
     }
 }
 ```
-
