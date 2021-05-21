@@ -19,5 +19,17 @@ Variables in config.toml can also be provided as environment variables prefixed 
 | `LISTMONK_db__database`        | listmonk       |
 | `LISTMONK_db__ssl_mode`        | disable        |
 
+
 ### Customizing system templates
 [Read this](../templating/#system-templates)
+
+
+### HTTP routes
+When configuring auth proxies in front of listmonk, these end user facing URIs should be open to the internet. All other paths can be secured behind the proxy.
+
+| Methods	        | Route              |
+| ------------------|--------------------|
+| `GET, POST`       | `/subscription/*`  |
+| `GET, `           | `/link/*`          |
+| `GET`             | `/campaign/*`      |
+| `GET`             | `/public/*`        |
