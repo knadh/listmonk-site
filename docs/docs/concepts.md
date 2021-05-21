@@ -22,27 +22,28 @@ Attributes are arbitrary properties attached to a subscriber in addition to thei
 }
 ```
 
+### Subscription statuses
+
+A subscriber can be added to one or more lists, and each such relationship can have one of these statuses.
+
+| Status        | Description                                                                       |
+| ------------- | --------------------------------------------------------------------------------- |
+| `unconfirmed` | The subscriber was added to the list directly without their explicit confirmation. Nonetheless, the subscriber will receive campaign messages sent to single optin campaigns. |
+| `confirmed`   | The subscriber confirmed their subscription by clicking on 'accept' in the confirmation e-mail. Only confirmed subscribers in opt-in lists will receive campaign messages send to the list.                                       |
+| `unsubscribed` | The subscriber is unsubscribed from the list and will not receive any campaign messages sent to the list.
+
+
 ### Segmentation
 
 Segmentation is the process of filtering a large list of subscribers into a smaller group based on arbitrary conditions, primarily based on their attributes. For instance, if an e-mail needs to be sent subscribers who live in a particular city, given their city is described in their attributes, it's possible to quickly filter them out into a new list and e-mail them. [Learn more](../querying-and-segmentation).
 
 ## List
 
-A list (or a _mailing list_) is a collection of subscribers grouped under a name, for instance, _clients_. Lists are used to organise subscribers and send e-mails to specific groups.
-
-### Subscription status
-
-Subscribers in a list will have one of these subscription statuses.
-
-| Status        | Description                                                                       |
-| ------------- | --------------------------------------------------------------------------------- |
-| `unconfirmed` | The subscriber was added to the list directly without their explicit confirmation |
-| `confirmed`   | The subscriber added themselves to the list                                       |
-| `blocklisted` | The subscriber unsubscribed from the list permanently                             |
+A list (or a _mailing list_) is a collection of subscribers grouped under a name, for instance, _clients_. Lists are used to organise subscribers and send e-mails to specific groups. A list can be single optin or double optin. Subscribers added to double optin lists have to explicitly accept the subscription by clicking on the confirmation e-mail they receive. Until then, they do not receive campaign messages.
 
 ## Campaign
 
-A campaign is an e-mail that is sent to one or more lists.
+A campaign is an e-mail (or any other kind of messages) that is sent to one or more lists.
 
 ## Template
 
@@ -54,8 +55,8 @@ listmonk supports multiple custom messaging backends in additional to the defaul
 
 ## Tracking pixel
 
-The tracking pixel is a tiny, invisible image that is inserted into an e-mail body to track e-mail views. This allows measuring the read rate of e-mails. While this is exceedingly common in e-mail campaigns, it carries privacy implications and should be used in compliance with rules and regulations such as GDPR.
+The tracking pixel is a tiny, invisible image that is inserted into an e-mail body to track e-mail views. This allows measuring the read rate of e-mails. While this is exceedingly common in e-mail campaigns, it carries privacy implications and should be used in compliance with rules and regulations such as GDPR. It is possible to track reads anonymously without associating an e-mail read to a subscriber.
 
 ## Click tracking
 
-It is possible to track the clicks on every link that is sent in an e-mail. This allows measuring the clickthrough rates of links in e-mails. While this is exceedingly common in e-mail campaigns, it carries privacy implications and should be used in compliance with rules and regulations such as GDPR.
+It is possible to track the clicks on every link that is sent in an e-mail. This allows measuring the clickthrough rates of links in e-mails. While this is exceedingly common in e-mail campaigns, it carries privacy implications and should be used in compliance with rules and regulations such as GDPR. It is possible to track link clicks anonymously without associating an e-mail read to a subscriber.
