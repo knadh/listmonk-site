@@ -5,7 +5,7 @@
  `GET`    | [/api/subscribers](#get-apisubscribers)                               | Gets all subscribers.                     
  `GET`    | [/api/subscribers/:`id`](#get-apisubscribersid)                         | Gets a single subscriber.
  `GET`    | /api/subscribers/lists/:`id`                                            | Gets subscribers in a list.                
- `GET`    | [/api/subscribers/:`list_id`](#get-apisubscriberslist_id)                | Gets subscribers in one or more list.   
+ `GET`    | [/api/subscribers](#get-apisubscriberslist_id)                | Gets subscribers in one or more lists.   
  `GET`    | [/api/subscribers](#get-apisubscribers_1)                             | Gets subscribers filtered by an arbitrary SQL expression. 
  `POST`   | [/api/subscribers](#post-apisubscribers)                              | Creates a new subscriber.                        
  `PUT`    | /api/subscribers/:`id`                                                 | Updates a subscriber by ID.                    
@@ -24,8 +24,11 @@ Gets all subscribers.
 
 ##### Example Request
 ```shell
-curl 'http://localhost:9000/api/subscribers' 
+curl 'http://localhost:9000/api/subscribers?page=1&per_page=100' 
 ```
+
+To skip pagination and retrieve all records, pass `per_page=all`.
+
 ##### Example Response
 ```json
 {
@@ -160,19 +163,21 @@ curl 'http://localhost:9000/api/subscribers/1'
 
 
 
-#### **`GET`** /api/subscribers/:`list_id`
+#### **`GET`** /api/subscribers
 Gets subscribers in one or more lists. 
 
 ##### Parameters
 
 Name    | Parameter type  | Data type   |  Required/Optional  | Description
 ------- |-----------------|-------------|---------------------|---------------
-`List_id` | Request body    | Number      | Required            |  The id value of the list whose subcribers you want to get.
+`List_id` | Request body    | Number      | Required            |  ID of the list to fetch subscribers from.
 
 ##### Example Request
 ```shell
-curl 'http://localhost:9000/api/subscribers?list_id=1&list_id=2&page=1'
+curl 'http://localhost:9000/api/subscribers?list_id=1&list_id=2&page=1&per_page=100'
 ```
+
+To skip pagination and retrieve all records, pass `per_page=all`.
 
 ##### Example Response
 
@@ -224,8 +229,12 @@ Gets subscribers with an SQL expression.
 ```shell
 curl -X GET 'http://localhost:9000/api/subscribers' \
     -d 'page=1' \
+    -d 'per_page=100' \
     -d "query=subscribers.name LIKE 'Test%' AND subscribers.attribs->>'city' = 'Bengaluru'"
 ```
+
+To skip pagination and retrieve all records, pass `per_page=all`.
+
 
 >Refer to the [querying and segmentation](/querying-and-segmentation#querying-and-segmenting-subscribers) section for more information on how to query subscribers with SQL expressions.
 

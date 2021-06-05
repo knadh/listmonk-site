@@ -19,8 +19,10 @@ Gets all campaigns.
 ##### Example Request
 
 ```shell
- curl -u "username:password" -X GET 'http://localhost:9000/api/campaigns'
+ curl -u "username:password" -X GET 'http://localhost:9000/api/campaigns?page=1&per_page=100'
 ```
+
+To skip pagination and retrieve all records, pass `per_page=all`.
 
 ##### Example Response
 
