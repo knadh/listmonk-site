@@ -35,7 +35,7 @@ To mount a local `config.toml` file, add the following section to `docker-compos
     <<: *app-defaults
     depends_on:
       - db
-    volume:
+    volumes:
     - ./path/on/your/host/config.toml/:/listmonk/config.toml
 ```
 
