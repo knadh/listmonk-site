@@ -13,14 +13,13 @@ The app has two distinct components, the Go backend and the VueJS frontend. In t
 
 1. Copy `config.toml.sample` as `config.toml` and add your config.
 2. `make deps` (to install Go dependencies for the backend and the JS dependencies for the frontend).
-3. `make build-frontend` (to setup the `frontend/dist` directory).
-3. `make build` to build the listmonk binary. Once the binary is built, run `./listmonk --install` to run the DB setup.
+3. `make build dist` to build the listmonk binary. Once the binary is built, run `./listmonk --install` to run the DB setup.
 
 > [mailhog](https://github.com/mailhog/MailHog) is an excellent standalone mock SMTP server (with a UI) for testing and dev.
 
 
 ### Running the dev environment
-1. Run `make run` to start the listmonk Go server on `:9000`.
+1. Run `make run` to start the listmonk dev server on `:9000`.
 2. Run `make run-frontend` to start the Vue frontend in dev mode using yarn on `:8080`. All `/api/*` calls are proxied to the app running on `:9000`. Refer to the [frontend README](https://github.com/knadh/listmonk/blob/master/frontend/README.md) for an overview on how the frontend is structured.
 3. Visit `http://localhost:8080`
 
