@@ -25,11 +25,23 @@ Variables in config.toml can also be provided as environment variables prefixed 
 
 
 ### HTTP routes
-When configuring auth proxies in front of listmonk, these end user facing URIs should be open to the internet. All other paths can be secured behind the proxy.
+When configuring auth proxies and web application firewalls, use this table.
 
-| Methods	        | Route              |
-| ------------------|--------------------|
-| `GET, POST`       | `/subscription/*`  |
-| `GET, `           | `/link/*`          |
-| `GET`             | `/campaign/*`      |
-| `GET`             | `/public/*`        |
+#### Private admin endpoints.
+
+| Methods | Route              | Description             |
+|---------|--------------------|-------------------------|
+| `*`     | `/api/*`           | Admin APIs              |
+| `GET`   | `/admin/*`         | Admin UI and HTML pages |
+| `POST`  | `/webhooks/bounce` | Admin bounce webhook    |
+
+
+#### Public endpoints to expose to the internet.
+
+| Methods     | Route                 | Description                                   |
+|-------------|-----------------------|-----------------------------------------------|
+| `GET, POST` | `/subscription/*`     | HTML subscription pages                       |
+| `GET, `     | `/link/*`             | Tracked link redirection                      |
+| `GET`       | `/campaign/*`         | Pixel tracking image                          |
+| `GET`       | `/public/*`           | Static files for HTML subscription pages      |
+| `POST`      | `/webhooks/service/*` | Bounce webhook endpoints for AWS and Sendgrid |

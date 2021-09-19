@@ -7,7 +7,7 @@ theme:
   language: "en"
   font:
     text: 'Inter'
-    code: 'Ubuntu Mono'
+    weights: 400
   direction: 'ltr'
   extra:
   search:
@@ -41,9 +41,10 @@ pages:
   - "Concepts": concepts.md
   - "Querying and segmenting subscribers": querying-and-segmentation.md
   - "Templating": templating.md
-  - "Integrating with external systems": external-integration.md
+  - "Bounce processing": bounces.md
   - "Messengers": "messengers.md"
   - "Internationalization": "i18n.md"
+  - "Integrating with external systems": external-integration.md
   - "API": apis/apis.md
   - "API / Subscribers": apis/subscribers.md
   - "API / Lists": apis/lists.md

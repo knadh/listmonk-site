@@ -36,7 +36,8 @@ There are several template functions and expressions that can be used in campaig
 | Function                                    | Description                                                                                                                                                    |
 | ------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `{{ Date "2006-01-01" }}`                   | Prints the current datetime for the given format expressed as a [Go date layout](https://yourbasic.org/golang/format-parse-string-time-date-example/) |
-| `{{ TrackLink "https://actual-link.com" }}` | Takes a URL and generates a tracking URL over it. For use in campaign bodies and templates.                                                                    |
+| `{{ TrackLink "https://link.com" }}` | Takes a URL and generates a tracking URL over it. For use in campaign bodies and templates.                                                                    |
+| `https://link.com@TrackLink`         | Shorthand for `TrackLink`. Eg: `<a href="https://link.com@TrackLink">Link</a>`                                                                       |
 | `{{ TrackView }}`                           | Inserts a single tracking pixel. Should only be used once, ideally in the template footer.                                                                     |
 | `{{ UnsubscribeURL }}`                      | Unsubscription URL. Ideal for use in the template footer.                                                                                                      |
 | `{{ MessageURL }}`                          | URL to view the hosted version of an e-mail message.                                                                                                           |
@@ -98,6 +99,9 @@ The expression `{{ template "content" . }}` should appear exactly once in every 
 </html>
 ```
 
+!!! info
+    For use with plaintext campaigns, create a template with no HTML content and just the placeholder `{{ template "content" . }}`
+
 ### Example campaign body
 
 Campaign bodies can be composed using the built-in WYSIWYG editor or as raw HTML documents. Assuming that the subscriber has a set of [attributes defined](../querying-and-segmentation#sample-attributes), this example shows how to render those values in a campaign.
@@ -131,6 +135,7 @@ System templates are used for rendering public user facing pages such as the sub
 | /static/public/        |                                                          |
 |------------------------|--------------------------------------------------------------------|
 | `index.html`             | Base template with the header and footer that all pages use.        |
+| `home.html`              | Landing page on the root domain with the login button.              |
 | `message.html`           | Generic success / failure message page.                             |
 | `optin.html`             | Opt-in confirmation page.                                           |
 | `subscription.html`      | Subscription management page with options for data export and wipe. |

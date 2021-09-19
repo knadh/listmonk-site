@@ -9,7 +9,7 @@ Method |   Endpoint                                                             
 `POST` | /api/campaigns/:`campaign_id`/test                         |  Posts campaign message to arbitrary subscribers for testing.
 `POST` | /api/campaigns                                                             |  Creates a new campaign.
 `PUT`  | /api/campaigns/:`campaign_id`                                                |  Modifies a campaign.
-`PUT`  | [/api/campaigns/:`campaign_id`/status](#put-apicampaignscampaign_idstatus)   |  Modifies a campaign status.
+`PUT`  | [/api/campaigns/:`campaign_id`/status](#put-apicampaignscampaign_idstatus)   |  Start / pause / cancel / schedule a campaign.
 `DELETE`  | [/api/campaigns/:`campaign_id`](#delete-apicampaignscampaign_id)          |  Deletes a campaign. 
 
 #### ```GET``` /api/campaigns
@@ -179,14 +179,14 @@ curl -u "username:password" -X GET 'http://localhost:9000/api/campaigns/running/
 
 #### ```PUT``` /api/campaigns/:`campaign_id`/status
 
-Modifies a campaign status. 
+Modifies a campaign status to start, pause, cancel, or schedule a campaign.
 
 ##### Parameters 
 
 Name              |  Parameter Type         | Data Type                 |    Required/Optional | Description
 ------------------|-------------------------|---------------------------|----------------------|-----------------------------
 `campaign_id`      | Path Parameter          | Number                    | Required             | The id value of the campaign whose status is to be modified.
-status            | Request Body            | String                    | Required             | The new status value, can be set to "draft", "scheduled", "running", "paused", "finished", "cancelled".                        
+`status`            | Request Body            | String                    | Required             | `scheduled`, `running`, `paused`, `cancelled`.                        
 
 
 ###### Note: 
