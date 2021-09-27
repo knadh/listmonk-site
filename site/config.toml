@@ -1,4 +1,4 @@
-baseurl = "https://listmonk.app"
+baseurl = "https://listmonk.app/"
 languageCode = "en-us"
 title = "listmonk - Free and open source self-hosted newsletter and mailing list manager"
 
