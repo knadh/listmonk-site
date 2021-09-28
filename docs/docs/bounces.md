@@ -42,5 +42,5 @@ listmonk supports receiving bounce webhook events from the following SMTP provid
 
 | Endpoint                    | Description      |           |
 |-----------------------------|------------------|-----------|
-| `https://listmonk.yoursite.com/webhooks/bounce/ses`      | Amazon (AWS) SES | [More info](https://docs.mautic.org/en/channels/emails/bounce-management#amazon-webhook). Follow the same steps as Mautic but use your listmonk's endpoint instead. |
-| `https://listmonk.yoursite.com/webhooks/bounce/sendgrid` | Sendgrid / Twilio Signed event webhook         | [More info](https://docs.sendgrid.com/for-developers/tracking-events/getting-started-event-webhook-security-features) |
+| `https://listmonk.yoursite.com/webhooks/service/ses`      | Amazon (AWS) SES | [More info](https://docs.mautic.org/en/channels/emails/bounce-management#amazon-webhook). Follow the same steps as Mautic but use your listmonk's endpoint instead. |
+| `https://listmonk.yoursite.com/webhooks/service/sendgrid` | Sendgrid / Twilio Signed event webhook         | [More info](https://docs.sendgrid.com/for-developers/tracking-events/getting-started-event-webhook-security-features) |
