@@ -3,14 +3,16 @@
 Enable bounce processing in Settings -> Bounces. POP3 bounce scanning and APIs only become available once the setting is enabled.
 
 ### POP3 bounce mailbox
-Configure the bounce mailbox in Settings -> Bounces. Either the "From" e-mail that is set on a campaign (or in settings) should have a POP3 mailbox behind it to receive bounce e-mails, or you should configure a dedicated POP3 mailbox and add that address as the `Reply-To` header in Settings -> SMTP -> Custom headers box. For example:
+Configure the bounce mailbox in Settings -> Bounces. Either the "From" e-mail that is set on a campaign (or in settings) should have a POP3 mailbox behind it to receive bounce e-mails, or you should configure a dedicated POP3 mailbox and add that address as the `Return-Path` (envelope sender) header in Settings -> SMTP -> Custom headers box. For example:
 
 ```
 [
-	{"Reply-To": "your-inbox@site.com"}
+	{"Return-Path": "your-bounce-inbox@site.com"}
 ]
 
 ```
+
+Some mail servers may also return the bounce to the `Reply-To` address, which can also be added to the header settings.
 
 ### Webhook API
 The bounce webhook API can be used to record bounce events with custom scripting. This could be by reading a mailbox, a database, or mail server logs.
