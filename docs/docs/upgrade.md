@@ -1,5 +1,7 @@
 # Upgrade
 
+Some versions may require changes to the database. These changes or database "migrations" are applied automatically and safely, but, it is recommended to take a backup of the Postgres database before running the `--upgrade` option, especially if you have made customizations to the database tables.
+
 ## Binary
 - Download the [latest release](https://github.com/knadh/listmonk/releases) and extract the listmonk binary.
 - `./listmonk --upgrade` to upgrade an existing DB. Upgrades are idempotent and running them multiple times have no side effects.
@@ -11,16 +13,15 @@
 - `docker-compose run --rm app ./listmonk --upgrade` to upgrade an existing DB.
 - Run `docker-compose up app db` and visit `http://localhost:9000`.
 
-## Heroku Deployment
+## Heroku
 
-- Fork the [Listmonk-Heroku repository](https://github.com/knadh/listmonk-heroku) to your GitHub account
-- In Heroku, go to your app and click on the "Deploy" tab.
-- In the "Deployment method" section of this page, select GitHub.
-- In the "Connect to GitHub" section, search for your forked Listmonk-Heroku repo. Connect to it.
-![image](https://user-images.githubusercontent.com/55474996/135002032-0a7dce9c-548f-4edd-8db2-575708b490b4.png)
+If you deployed listmonk on Heroku using the *Deploy to Heroku* button, then these steps are necessary to upgrade your installation as Heroku does not provide simpler means to upgrade. 
 
-- In the "Automatic deploys" page, select "Enable Automatic Deploys"
-![image](https://user-images.githubusercontent.com/55474996/135002226-bded2405-1bd4-40e4-834b-5f5def07215a.png)
+- Fork the [listmonk-heroku repository](https://github.com/knadh/listmonk-heroku) to your GitHub account.
+- Login to Heroku, and go to the "Deploy" tab under the listmonk app.
+- Select "GitHub" in the "Deployment method" section.
+- In the "Connect to GitHub" section, search for your forked listmonk-Heroku repo. Connect to it.
+[![image](https://user-images.githubusercontent.com/55474996/135002032-0a7dce9c-548f-4edd-8db2-575708b490b4.png)](https://user-images.githubusercontent.com/55474996/135002032-0a7dce9c-548f-4edd-8db2-575708b490b4.png)
 
-- Head back to your forked Listmonk-Heroku repository on your GitHub account. Edit one of your files and make a simple modification (example, add some random characters to the readme.md) and commit the change directly to the main branch.
-- This will trigger the Heroku deployment. Your app should now be updated to the latest release of Listmonk.
+- In the "Manual deploy" section, click on the "Deploy Branch" button. For all future upgrades, simply use this option once.
+[![image](https://user-images.githubusercontent.com/547147/135745846-df37cd8f-a0b7-4dc8-bc15-5d350b1afe78.png)](https://user-images.githubusercontent.com/547147/135745846-df37cd8f-a0b7-4dc8-bc15-5d350b1afe78.png)
