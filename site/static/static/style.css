@@ -251,11 +251,13 @@ nav {
   }
 
   .splash .title {
-    font-size: 2.5em;
+    font-size: 2.1em;
+    line-height: 1.3em;
   }
 
   .splash .sub {
-    font-size: 1.5em;
+    font-size: 1.3em;
+    line-height: 1.5em;
   }
 
   nav {
