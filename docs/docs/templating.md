@@ -141,6 +141,7 @@ System templates are used for rendering public user facing pages such as the sub
 | `subscription.html`      | Subscription management page with options for data export and wipe. |
 | `subscription-form.html` | List selection and subscription form page.                          |
 
+
 ### System e-mails
 
 | /static/email-templates/         |                                                                                                                                    |
@@ -152,3 +153,6 @@ System templates are used for rendering public user facing pages such as the sub
 | `subscriber-optin.html`          | Automatic opt-in confirmation e-mail that is sent to an unconfirmed subscriber when they are added.                                |
 | `subscriber-optin-campaign.html` | E-mail content that's inserted into a campaign body when starting an opt-in campaign from the lists page.                          |
 | `default.tpl`                    | Default campaign template that is created in Campaigns -> Templates when listmonk is first installed. This is not used after that. |
+
+!!! info
+    To turn system e-mail templates to plaintext, remove `<!doctype html>` from base.html and remove all HTML tags from the templates while retaining the Go templating code.
