@@ -1,5 +1,7 @@
 # Installation
 
+listmonk requires Postgres ⩾ v9.4.
+
 ## Binary
 - Download the [latest release](https://github.com/knadh/listmonk/releases) and extract the listmonk binary.
 - `./listmonk --new-config` to generate config.toml. Then, edit the file.
