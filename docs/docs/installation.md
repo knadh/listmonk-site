@@ -118,3 +118,11 @@ Mount the local `config.toml` inside the container at `listmonk/config.toml`.
 
 !!! info
     The example `docker-compose.yml` file works with Docker Engine 18.06.0+ and `docker-compose` which supports file format 3.7.
+
+## Compiling from source
+
+To compile the latest unreleased version (`master` branch):
+
+1. Make sure `go`, `nodejs`, and `yarn` are installed on your system.
+2. `git clone git@github.com:knadh/listmonk.git`
+3. `cd listmonk && make dist`. This will generate the `listmonk binary`.
