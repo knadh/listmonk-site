@@ -126,3 +126,7 @@ To compile the latest unreleased version (`master` branch):
 1. Make sure `go`, `nodejs`, and `yarn` are installed on your system.
 2. `git clone git@github.com:knadh/listmonk.git`
 3. `cd listmonk && make dist`. This will generate the `listmonk binary`.
+
+## Release candidate (RC)
+
+The `master` branch with bleeding edge changes is periodically built and published as `listmonk/listmonk:rc` on DockerHub. To run the latest pre-release version, replace all instances of `listmonk/listmonk:latest` with `listmonk/listmonk:rc` in the docker-compose.yml file and follow the Docker installation steps above. While it is generally safe to run release candidate versions, they may have issues that only get resolved in a general release.
