@@ -11,7 +11,7 @@ theme:
   direction: 'ltr'
   extra:
   search:
-    language: 'en, de, ru'
+    language: 'en'
   feature:
     tabs: true
 
@@ -23,7 +23,8 @@ site_dir: _out
 
 markdown_extensions:
   - admonition
-  - codehilite
+  - pymdownx.highlight
+  - pymdownx.superfences
   - toc:
       permalink: true
 

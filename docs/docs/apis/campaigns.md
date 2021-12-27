@@ -6,8 +6,8 @@ Method |   Endpoint                                                             
 `GET`  | [/api/campaigns/:`campaign_id`](#get-apicampaignscampaign_id)                |  Gets a single campaign.
 `GET`  | [/api/campaigns/:`campaign_id`/preview](#get-apicampaignscampaign_idpreview)  |  Gets the HTML preview of a campaign body.
 `GET`  | [/api/campaigns/running/stats](#get-apicampaignsrunningstats)              |  Gets the stats of a given set of campaigns.
+`POST` | [/api/campaigns](#post-apicampaigns)                                       |  Creates a new campaign.
 `POST` | /api/campaigns/:`campaign_id`/test                         |  Posts campaign message to arbitrary subscribers for testing.
-`POST` | /api/campaigns                                                             |  Creates a new campaign.
 `PUT`  | /api/campaigns/:`campaign_id`                                                |  Modifies a campaign.
 `PUT`  | [/api/campaigns/:`campaign_id`/status](#put-apicampaignscampaign_idstatus)   |  Start / pause / cancel / schedule a campaign.
 `DELETE`  | [/api/campaigns/:`campaign_id`](#delete-apicampaignscampaign_id)          |  Deletes a campaign. 
@@ -176,6 +176,74 @@ curl -u "username:password" -X GET 'http://localhost:9000/api/campaigns/running/
     "data": []
 }
 ```
+
+
+
+
+
+### ```POST ``` /api/campaigns
+
+Creates a new campaign.
+
+#### Parameters
+| Name           | Data type | Required/Optional | Description                                                                                            |
+|----------------|-----------|-------------------|--------------------------------------------------------------------------------------------------------|
+| `name`         | String    | Required          | Name of the campaign.                                                                                  |
+| `subject`      | String    | Required          | (E-mail) subject of the campaign.                                                                      |
+| `lists`        | []Number  | Required          | Array of list IDs to send the campaign to.                                                             |
+| `from_email`   | String    | Optional          | `From` e-mail to show on the campaign e-mails. If left empty, the default value from settings is used. |
+| `type`         | String    | Required          | `regular` or `optin` campaign.                                                                         |
+| `content_type` | String    | Required          | `richtext`, `html`, `markdown`, `plain`                                                                |
+| `body`         | String    | Required          | Campaign content body.                                                                                 |
+| `altbody`      | String    | Optional          | Alternate plain text body for HTML (and richtext) e-mails.                                             |
+| `send_at`      | String    | Optional          | A timestamp to schedule the campaign at. Eg: `2021-12-25T06:00:00` (YYYY-MM-DDTHH:MM:SS)               |
+| `messenger`    | String    | Optional          | `email` or a custom messenger defined in the settings. If left empty, `email` is used.                 |
+| `template_id`  | Number    | Optional          | ID of the template to use. If left empty, the default template is used.                                |
+| `tags`         | []String  | Optional          | Array of string tags to mark the campaign.                                                             |
+
+
+
+
+#### Example request
+
+```shell
+curl -u "username:password" 'http://localhost:9000/api/campaigns' -X POST -H 'Content-Type: application/json;charset=utf-8' --data-raw '{"name":"Test campaign","subject":"Hello, world","lists":[1],"from_email":"listmonk <noreply@listmonk.yoursite.com>","content_type":"richtext","messenger":"email","type":"regular","tags":["test"],"template_id":1}'
+```
+
+#### Example response
+```json
+{
+    "data": {
+        "id": 1,
+        "created_at": "2021-12-27T11:50:23.333485Z",
+        "updated_at": "2021-12-27T11:50:23.333485Z",
+        "views": 0,
+        "clicks": 0,
+        "bounces": 0,
+        "lists": [{
+            "id": 1,
+            "name": "Default list"
+        }],
+        "started_at": null,
+        "to_send": 1,
+        "sent": 0,
+        "uuid": "90c889cc-3728-4064-bbcb-5c1c446633b3",
+        "type": "regular",
+        "name": "Test campaign",
+        "subject": "Hello, world",
+        "from_email": "listmonk \u003cnoreply@listmonk.yoursite.com\u003e",
+        "body": "",
+        "altbody": null,
+        "send_at": null,
+        "status": "draft",
+        "content_type": "richtext",
+        "tags": ["test"],
+        "template_id": 1,
+        "messenger": "email"
+    }
+}
+```
+
 
 #### ```PUT``` /api/campaigns/:`campaign_id`/status
 
