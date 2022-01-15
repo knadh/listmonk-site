@@ -33,3 +33,11 @@ The address required to broadcast the message, for instance, a phone numbe or an
 	}
 }
 ```
+
+## Messenger implementations
+
+Following is a list of HTTP messenger servers that connect to various backends.
+
+| Name                                                                   | Backend      |
+|------------------------------------------------------------------------|------------------|
+| [listmonk-messenger](https://github.com/joeirimpan/listmonk-messenger) | AWS Pinpoint SMS |
