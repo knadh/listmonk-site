@@ -17,7 +17,7 @@ Some versions may require changes to the database. These changes or database "mi
 
 If you deployed listmonk on Heroku using the *Deploy to Heroku* button, then these steps are necessary to upgrade your installation as Heroku does not provide simpler means to upgrade. 
 
-- Fork the [listmonk-heroku repository](https://github.com/knadh/listmonk-heroku) to your GitHub account.
+- Fork the [listmonk-heroku repository](https://github.com/knadh/listmonk-heroku-deploy) to your GitHub account.
 - Login to Heroku, and go to the "Deploy" tab under the listmonk app.
 - Select "GitHub" in the "Deployment method" section.
 - In the "Connect to GitHub" section, search for your forked listmonk-Heroku repo. Connect to it.
