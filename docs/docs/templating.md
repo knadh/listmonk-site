@@ -42,6 +42,7 @@ There are several template functions and expressions that can be used in campaig
 | `{{ UnsubscribeURL }}`                      | Unsubscription URL. Ideal for use in the template footer.                                                                                                      |
 | `{{ MessageURL }}`                          | URL to view the hosted version of an e-mail message.                                                                                                           |
 | `{{ OptinURL }}`                            | URL to the double-optin confirmation page.                                                                                                                     |
+| `{{ Safe "<!-- comment -->" }}`             | Add any HTML code as it is.                                                                                                                                   |
 
 ### Sprig functions
 listmonk integrates the Sprig library that offers 100+ utility functions for working with strings, numbers, dates etc. that can be used in templating. Refer to the [Sprig documentation](https://masterminds.github.io/sprig/) for the full list of functions.
