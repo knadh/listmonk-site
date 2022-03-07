@@ -131,6 +131,7 @@ The above example uses an `if` condition to show one of two messages depending o
 ## System templates
 System templates are used for rendering public user facing pages such as the subscription management page, and in automatically generated system e-mails such as the opt-in confirmation e-mail. These are bundled into listmonk but can be customized by copying the [static directory](https://github.com/knadh/listmonk/tree/master/static) locally, and passing its path to listmonk with the `./listmonk --static-dir=your/custom/path` flag.
 
+
 ### Public pages
 
 | /static/public/        |                                                          |
@@ -141,6 +142,12 @@ System templates are used for rendering public user facing pages such as the sub
 | `optin.html`             | Opt-in confirmation page.                                           |
 | `subscription.html`      | Subscription management page with options for data export and wipe. |
 | `subscription-form.html` | List selection and subscription form page.                          |
+
+
+To edit the appearance of the public pages using CSS and Javascript, head to Settings > Appearance > Public:
+
+![image](https://user-images.githubusercontent.com/55474996/153739792-93074af6-d1dd-40aa-8cde-c02ea4bbb67b.png)
+
 
 
 ### System e-mails
