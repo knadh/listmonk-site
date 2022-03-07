@@ -9,10 +9,6 @@ listmonk requires Postgres ⩾ v9.4.
 - Run `./listmonk` and visit `http://localhost:9000`.
 
 
-## Heroku
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/knadh/listmonk-heroku-deploy)
-
-
 ## Docker
 
 The latest image is available on DockerHub at `listmonk/listmonk:latest`
