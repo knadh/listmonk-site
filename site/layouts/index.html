@@ -89,7 +89,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/knadh/listmonk/master/inst
       with custom JSON attributes for each subscriber.
       Query and segment subscribers with SQL expressions.
     </p>
-    <p>Use the super fast bulk importer (10k records per second) or use HTTP/JSON APIs or interact with the simple
+    <p>Use the fast bulk importer (~10k records per second) or use HTTP/JSON APIs or interact with the simple
       table schema to integrate external CRMs and subscriber databases.
     </p>
   </section>
@@ -100,7 +100,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/knadh/listmonk/master/inst
       <img class="box" src="static/images/analytics.png" alt="Screenshot of analytics feature" />
     </div>
     <p class="center">
-      Visualize and compare campaign performance. Connect external visualization programs to the database easily with the simple table structure.
+      Simple analaytics and visualizations. Connect external visualization programs to the database easily with the simple table structure.
     </p>
   </section>
 
@@ -130,8 +130,8 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/knadh/listmonk/master/inst
     </div>
     <br />
     <p>
-      Highly configurable, multi-threaded, high-throughput multi-SMTP e-mail queues for super fast campaign delivery.
-      Throughput and sliding window rate limiting for fine grained speed controls.  
+      Multi-threaded, high-throughput, multi-SMTP e-mail queues.
+      Throughput and sliding window rate limiting for fine grained control.  
       Single binary application with nominal CPU and memory footprint that runs everywhere.
       The only dependency is a Postgres (⩾ v9.4) database.
     </p>
@@ -147,14 +147,13 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/knadh/listmonk/master/inst
   </section>
 
   <section class="lists feature">
-    <h2>Messengers</h2>
+    <h2>Extensible</h2>
     <div class="center">
       <img class="box" src="static/images/messengers.png" alt="Screenshot of Messenger feature" />
     </div>
     <p class="center">
-      More than just e-mail campaigns.
-      Connect messenger web services and send SMS, Whatsapp, FCM notifications, or any type of arbitrary messages
-      with simple webhooks.
+      More than just e-mail campaigns. Connect HTTP webhooks to send SMS,
+      Whatsapp, FCM notifications, or any type of messages.
     </p>
   </section>
 
@@ -164,9 +163,8 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/knadh/listmonk/master/inst
       <img class="box" src="static/images/privacy.png" alt="Screenshot of privacy features" />
     </div>
     <p class="center">
-      Allow subscribers to permanantely blocklist themselves, export all the data
-      associated with their profile including clicks and views, and to wipe all
-      their data in a single click.
+      Allow subscribers to permanantely blocklist themselves, export all their data,
+      and to wipe all their data in a single click.
     </p>
   </section>
 
