@@ -268,8 +268,8 @@ Name              |  Parameter Type         | Data Type                 |    Req
 
 ```shell
 curl -u "username:password" -X PUT 'http://localhost:9000/api/campaigns/1/status' \
---header 'Content-Type: multipart/form-data; boundary=--------------------------047372886665819311890787' \
---form 'status=scheduled'
+--header 'Content-Type: application/json' \
+--data-raw '{"status":"scheduled"}'
 ```
 
 ##### Example Response
