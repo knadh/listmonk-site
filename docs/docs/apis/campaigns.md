@@ -22,7 +22,15 @@ Gets all campaigns.
  curl -u "username:password" -X GET 'http://localhost:9000/api/campaigns?page=1&per_page=100'
 ```
 
-To skip pagination and retrieve all records, pass `per_page=all`.
+##### Parameters
+Name    | Type   | Required/Optional   | Description
+--------|--------------------|-------------|---------------------|---------------------
+`query` | string      | Optional            |  Optional string to search a list by name.
+`order_by` | string      | Optional            |  Field to sort results by. `name|status|created_at|updated_at`
+`order` | string      | Optional            |  `ASC|DESC`Sort by ascending or descending order.
+`page` | number      | Optional            |  Page number for paginated results.
+`per_page` | number      | Optional            |  Results to return per page. Setting this to `all` skips pagination and returns all results.
+
 
 ##### Example Response
 
