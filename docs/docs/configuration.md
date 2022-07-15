@@ -14,6 +14,7 @@ Variables in config.toml can also be provided as environment variables prefixed 
 | `LISTMONK_app__admin_username` | listmonk       |
 | `LISTMONK_app__admin_password` | listmonk       |
 | `LISTMONK_db__host`            | db             |
+| `LISTMONK_db__port`            | 9432           |
 | `LISTMONK_db__user`            | listmonk       |
 | `LISTMONK_db__password`        | listmonk       |
 | `LISTMONK_db__database`        | listmonk       |
