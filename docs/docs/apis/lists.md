@@ -99,8 +99,9 @@ Creates a new list.
 Name    | Parameter type  | Data type   | Required/Optional  | Description
 --------|-----------------|-------------|--------------------|----------------
 name    | Request body    | string      | Required           | The new list name.  
-type    | Request body    | string      | Required           | List type, can be set to Private or Public.
+type    | Request body    | string      | Required           | List type, can be set to `private` or `public`.
 optin   | Request body    | string      | Required           | `single` or `double` optin.
+tags    | Request body    | string[]    | Optional           | The tags associated with the lists.
 
 ##### Example Request
 ``` shell
@@ -132,8 +133,9 @@ Name      |  Parameter type    | Data type    | Required/Optional     | Descript
 ----------|--------------------|--------------|-----------------------|-------------------------
 `list_id`   | Path parameter     | number       | Required              | The id of the list to be modified.
 name      | Request body       | string       | Optional              | The name which the old name will be modified to.
-type      | Request body       | string       | Optional              | List type, can be set to Private or Public.
+type      | Request body       | string       | Optional              | List type, can be set to `private` or `public`.
 optin     | Request body    | string      | Optional           | `single` or `double` optin.
+tags    | Request body    | string[]    | Optional           | The tags associated with the lists.
 
 ##### Example Request
 ```shell
