@@ -45,9 +45,15 @@ A list (or a _mailing list_) is a collection of subscribers grouped under a name
 
 A campaign is an e-mail (or any other kind of messages) that is sent to one or more lists.
 
+
+## Transactional message
+
+A transactional message is an arbitrary message sent to a subscriber using the transactional message API.
+
+
 ## Template
 
-A template is a re-usable HTML design that can be used across various campaigns. Most commonly, templates have standard header and footer areas with logos and branding elements, where campaign content is inserted in the middle. listmonk supports [Go template](https://gowebexamples.com/templates/) expressions that lets you create powerful, dynamic HTML templates. [Learn more](../templating).
+A template is a re-usable HTML design that can be used across campaigns and when sending arbitrary transactional messages. Most commonly, templates have standard header and footer areas with logos and branding elements, where campaign content is inserted in the middle. listmonk supports [Go template](https://gowebexamples.com/templates/) expressions that lets you create powerful, dynamic HTML templates. [Learn more](../templating).
 
 ## Messenger
 

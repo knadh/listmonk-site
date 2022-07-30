@@ -53,4 +53,5 @@ pages:
   - "API / Campaigns": apis/campaigns.md
   - "API / Media": apis/media.md
   - "API / Templates": apis/templates.md
+  - "API / Transactional": apis/transactional.md
   

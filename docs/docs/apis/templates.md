@@ -29,6 +29,7 @@ Gets all templates.
             "updated_at": "2020-03-14T17:36:41.288578+01:00",
             "name": "Default template",
             "body": "{{ template \"content\" . }}",
+            "type": "campaign",
             "is_default": true
         }
     ]
@@ -57,6 +58,7 @@ curl -u "username:username" -X GET 'http://localhost:9000/api/templates/1'
         "updated_at": "2020-03-14T17:36:41.288578+01:00",
         "name": "Default template",
         "body": "{{ template \"content\" . }}",
+        "type": "campaign",
         "is_default": true
     }
 }
@@ -114,6 +116,7 @@ curl -u "username:username" -X PUT 'http://localhost:9000/api/templates/1/defaul
         "updated_at": "2020-03-14T17:36:41.288578+01:00",
         "name": "Default template",
         "body": "{{ template \"content\" . }}",
+        "type": "campaign",
         "is_default": true
     }
 }
