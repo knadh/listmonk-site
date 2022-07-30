@@ -33,7 +33,7 @@ extra_css:
 
 copyright: "Copyright &copy; 2019, Kailash Nadh."
 
-pages:
+nav:
   - "Introduction": index.md
   - "Installation": installation.md
   - "Upgrade": upgrade.md
