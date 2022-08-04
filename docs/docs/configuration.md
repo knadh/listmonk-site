@@ -46,3 +46,39 @@ When configuring auth proxies and web application firewalls, use this table.
 | `GET`       | `/campaign/*`         | Pixel tracking image                          |
 | `GET`       | `/public/*`           | Static files for HTML subscription pages      |
 | `POST`      | `/webhooks/service/*` | Bounce webhook endpoints for AWS and Sendgrid |
+
+
+## Media Uploads
+
+### Filesystem
+
+When configuring `docker` volume mounts for using filesystem media uploads, you can follow either of two approaches.
+
+#### Using volumes
+
+Using `docker volumes`, you can specify the name of volume and destination for the files to be uploaded inside the container.
+
+
+```yml
+app:
+    volumes:
+      - type: volume
+        source: listmonk-uploads
+        target: /listmonk/uploads
+
+volumes:
+  listmonk-uploads:
+```
+
+!!! note
+
+    This volume is managed by `docker` itself, and you can see find the host path with `docker volume inspect listmonk_listmonk-uploads`.
+
+#### Using bind mounts
+
+```yml
+    volumes:
+      - /data/uploads:/listmonk/uploads
+```
+
+The files will be available inside `/data/uploads` directory on the host machine.
