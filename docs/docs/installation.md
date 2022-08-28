@@ -126,3 +126,10 @@ To compile the latest unreleased version (`master` branch):
 ## Release candidate (RC)
 
 The `master` branch with bleeding edge changes is periodically built and published as `listmonk/listmonk:rc` on DockerHub. To run the latest pre-release version, replace all instances of `listmonk/listmonk:latest` with `listmonk/listmonk:rc` in the docker-compose.yml file and follow the Docker installation steps above. While it is generally safe to run release candidate versions, they may have issues that only get resolved in a general release.
+
+## 3rd party hosting
+
+
+<a href="https://railway.app/new/template/listmonk"><img src="https://camo.githubusercontent.com/081df3dd8cff37aab35044727b02b94a8e948052487a8c6253e190f5940d776d/68747470733a2f2f7261696c7761792e6170702f627574746f6e2e737667" alt="One-click deploy on Raleway" style="max-height: 32px;" /></a>
+<br />
+<a href="https://www.pikapods.com/login?redirect=%2Fpods"><img src="https://www.pikapods.com/static/run-button.svg" alt="Deploy on PikaPod" /></a>
