@@ -23,8 +23,8 @@ curl -u "username:username" -X GET 'http://localhost:9000/api/media' \
             "uuid": "ec7b45ce-1408-4e5c-924e-965326a20287",
             "filename": "Media file",
             "created_at": "2020-04-08T22:43:45.080058+01:00",
-            "thumb_uri": "/uploads/thumb_Media file",
-            "uri": "/uploads/Media filE"
+            "thumb_uri": "/uploads/image_thumb.jpg",
+            "uri": "/uploads/image.jpg"
         }
     ]
 }
@@ -56,13 +56,20 @@ file       |  Request body         |  Media file       |     Required           
 ```shell 
 curl -u "username:username" -X POST 'http://localhost:9000/api/media' \
 --header 'Content-Type: multipart/form-data; boundary=--------------------------183679989870526937212428' \
---form 'file=@/Users/username/Desktop/Media file'
+--form 'file=@/path/to/image.jpg'
 ```
 
 ##### Example Response
 ``` json
 {
-    "data": true
+    "data": {
+        "id": 1,
+        "uuid": "ec7b45ce-1408-4e5c-924e-965326a20287",
+        "filename": "Media file",
+        "created_at": "2020-04-08T22:43:45.080058+01:00",
+        "thumb_uri": "/uploads/image_thumb.jpg",
+        "uri": "/uploads/image.jpg"
+    }
 }
 ```
 Response definitions
