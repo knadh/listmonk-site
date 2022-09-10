@@ -2,7 +2,7 @@
 
 ## Subscriber
 
-A subscriber is a recipient identified by an e-mail address and name. Subscribers receive e-mails that are sent from listmonk.
+A subscriber is a recipient identified by an e-mail address and name. Subscribers receive e-mails that are sent from listmonk. A subscriber can be added to any number of lists. Subscribers who are not a part of any lists are considered *orphan* records .
 
 ### Attributes
 
