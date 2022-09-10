@@ -22,8 +22,6 @@ curl -u "username:username" -X GET 'http://localhost:9000/api/media' \
             "id": 1,
             "uuid": "ec7b45ce-1408-4e5c-924e-965326a20287",
             "filename": "Media file",
-            "width": 0,
-            "height": 0,
             "created_at": "2020-04-08T22:43:45.080058+01:00",
             "thumb_uri": "/uploads/thumb_Media file",
             "uri": "/uploads/Media filE"
@@ -41,8 +39,6 @@ The following table describes each item in the response.
 |id|Media file object ID|number (int)|
 |uuid|Media file uuuid|string (uuid)|
 |filename|Name of the media file|string|
-|width|Width of the media file|number (int)|
-|height|Height of the media file|number (int)|
 |created_at|Date and time, when the media file object was created|String (localDateTime)|
 |thumb_uri|The thumbnail URI of the media file|string|
 |uri|URI of the media file|string|
