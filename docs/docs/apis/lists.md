@@ -1,24 +1,24 @@
 # API / Lists
-Method                   | Endpoint                                             | Description
--------------------------|------------------------------------------------------|----------------------------------------------
-`GET`                    | [/api/lists](#get-apilists)                          | Gets all lists.
-`GET`                    | [/api/lists/:`list_id`](#get-apilistslist_id)          | Gets a single list.
-`POST`                   | [/api/lists](#post-apilists)                         | Creates a new list.
-`PUT`                    | /api/lists/:`list_id`                                  | Modifies a list.
-`DELETE`                 | [/api/lists/:`list_id`](#put-apilistslist_id)          | Deletes a list.
+Method      | Endpoint                                             | Description
+------------|------------------------------------------------------|----------------------------------------------
+`GET`       | [/api/lists](#get-apilists)                          | Gets all lists.
+`GET`       | [/api/lists/:`list_id`](#get-apilistslist_id)        | Gets a single list.
+`POST`      | [/api/lists](#post-apilists)                         | Creates a new list.
+`PUT`       | /api/lists/:`list_id`                                | Modifies a list.
+`DELETE`    | [/api/lists/:`list_id`](#put-apilistslist_id)        | Deletes a list.
 
 
 #### **`GET`** /api/lists
 Gets lists.
 
 ##### Parameters
-Name    | Type   | Required/Optional   | Description
---------|--------------------|---------|-----------------------------------------
-`query` | string      | Optional            |  Optional string to search a list by name.
-`order_by` | string      | Optional            |  Field to sort results by. `name|status|created_at|updated_at`
-`order` | string      | Optional            |  `ASC|DESC`Sort by ascending or descending order.
-`page` | number      | Optional            |  Page number for paginated results.
-`per_page` | number      | Optional            |  Results to return per page. Setting this to `all` skips pagination and returns all results.
+Name       | Type   | Required/Optional  | Description
+-----------|--------|--------------------|-----------------------------------------
+`query`    | string | Optional           | Optional string to search a list by name.
+`order_by` | string | Optional           | Field to sort results by. `name|status|created_at|updated_at`
+`order`    | string | Optional           | `ASC|DESC`Sort by ascending or descending order.
+`page`     | number | Optional           | Page number for paginated results.
+`per_page` | number | Optional           | Results to return per page. Setting this to `all` skips pagination and returns all results.
 
 ##### Example Request
 ```shell
@@ -66,8 +66,8 @@ curl -u "username:username" -X GET 'http://localhost:9000/api/lists?page=1&per_p
 Gets a single list.
 
 ##### Parameters
-Name    | Parameter type     | Data type   | Required/Optional   | Description
---------|--------------------|-------------|---------------------|---------------------
+Name      | Parameter type     | Data type   | Required/Optional   | Description
+----------|--------------------|-------------|---------------------|---------------------
 `list_id` | Path parameter     | number      | Required            |  The id value of the list you want to get.
 
 ##### Example Request
@@ -131,11 +131,11 @@ Modifies a list.
 ##### Parameters
 Name      |  Parameter type    | Data type    | Required/Optional     | Description
 ----------|--------------------|--------------|-----------------------|-------------------------
-`list_id`   | Path parameter     | number       | Required              | The id of the list to be modified.
+`list_id` | Path parameter     | number       | Required              | The id of the list to be modified.
 name      | Request body       | string       | Optional              | The name which the old name will be modified to.
 type      | Request body       | string       | Optional              | List type, can be set to `private` or `public`.
-optin     | Request body    | string      | Optional           | `single` or `double` optin.
-tags    | Request body    | string[]    | Optional           | The tags associated with the list.
+optin     | Request body       | string       | Optional              | `single` or `double` optin.
+tags      | Request body       | string[]     | Optional              | The tags associated with the list.
 
 ##### Example Request
 ```shell

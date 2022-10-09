@@ -1,22 +1,22 @@
 # API / Subscribers
 
- Method   | Endpoint                                                              | Description                                             |
- -------- | ----------------------------------------------------------------------| ---------------------------------
- `GET`    | [/api/subscribers](#get-apisubscribers)                               | Gets all subscribers.                     
- `GET`    | [/api/subscribers/:`id`](#get-apisubscribersid)                         | Gets a single subscriber.
- `GET`    | /api/subscribers/lists/:`id`                                            | Gets subscribers in a list.                
- `GET`    | [/api/subscribers](#get-apisubscriberslist_id)                | Gets subscribers in one or more lists.   
- `GET`    | [/api/subscribers](#get-apisubscribers_1)                             | Gets subscribers filtered by an arbitrary SQL expression. 
- `POST`   | [/api/subscribers](#post-apisubscribers)                              | Creates a new subscriber.                        
- `PUT`    | /api/subscribers/:`id`                                                 | Updates a subscriber by ID.                    
- `PUT`    | [/api/subscribers/:`id`/blocklist](#put-apisubscribersidblocklist)      | Blocklists a single subscriber.               
- `PUT`    | /api/subscribers/blocklist                                            | Blocklists one or more subscribers.     
- `PUT`    | [/api/subscribers/query/blocklist](#put-apisubscribersqueryblocklist) | Blocklists subscribers with an arbitrary SQL expression.  
- `DELETE` | [/api/subscribers/:`id`](#delete-apisubscribersid)                      | Deletes a single subscriber.                   
- `DELETE` | [/api/subscribers](#delete-apisubscribers)                            | Deletes one or more subscribers .            
- `POST` | [/api/subscribers/query/delete](#post-apisubscribersquerydelete)        | Deletes subscribers with an arbitrary SQL expression .    
-
-
+Method   | Endpoint                                                              | Description
+---------|-----------------------------------------------------------------------|-----------------------------------------------------------
+`GET`    | [/api/subscribers](#get-apisubscribers)                               | Gets all subscribers.
+`GET`    | [/api/subscribers/:`id`](#get-apisubscribersid)                       | Gets a single subscriber.
+`GET`    | /api/subscribers/lists/:`id`                                          | Gets subscribers in a list.
+`GET`    | [/api/subscribers](#get-apisubscriberslist_id)                        | Gets subscribers in one or more lists.
+`GET`    | [/api/subscribers](#get-apisubscribers_1)                             | Gets subscribers filtered by an arbitrary SQL expression.
+`POST`   | [/api/subscribers](#post-apisubscribers)                              | Creates a new subscriber.
+`PUT`    | [/api/subscribers/lists/:`id`](#put-apisubscriberslists_id)           | Modify a subscriber's list memberhips.
+`PUT`    | [/api/subscribers/lists](#put-apisubscriberslists)                    | Modify subscribers' list memberships.
+`PUT`    | /api/subscribers/:`id`                                                | Updates a subscriber by ID.
+`PUT`    | [/api/subscribers/:`id`/blocklist](#put-apisubscribersidblocklist)    | Blocklists a single subscriber.
+`PUT`    | /api/subscribers/blocklist                                            | Blocklists one or more subscribers.
+`PUT`    | [/api/subscribers/query/blocklist](#put-apisubscribersqueryblocklist) | Blocklists subscribers with an arbitrary SQL expression.
+`DELETE` | [/api/subscribers/:`id`](#delete-apisubscribersid)                    | Deletes a single subscriber.
+`DELETE` | [/api/subscribers](#delete-apisubscribers)                            | Deletes one or more subscribers .
+`POST`   | [/api/subscribers/query/delete](#post-apisubscribersquerydelete)      | Deletes subscribers with an arbitrary SQL expression.
 
 
 #### **`GET`** /api/subscribers
@@ -107,10 +107,6 @@ To skip pagination and retrieve all records, pass `per_page=all`.
 ```
 
 
-
-
-
-
 #### **`GET`** /api/subscribers/:`id`
  Gets a single subscriber. 
 
@@ -118,7 +114,7 @@ To skip pagination and retrieve all records, pass `per_page=all`.
 
 Name     | Parameter type |Data type       | Required/Optional |  Description
 ---------|----------------|----------------|-------------------|-----------------------
-`id`       | Path parameter | Number         | Required          | The id value of the subscriber you want to get.
+`id`     | Path parameter | Number         | Required          | The id value of the subscriber you want to get.
 
 ##### Example Request
 ```shell
@@ -161,15 +157,13 @@ curl 'http://localhost:9000/api/subscribers/1'
 
 
 
-
-
 #### **`GET`** /api/subscribers
 Gets subscribers in one or more lists. 
 
 ##### Parameters
 
-Name    | Parameter type  | Data type   |  Required/Optional  | Description
-------- |-----------------|-------------|---------------------|---------------
+Name      | Parameter type  | Data type   | Required/Optional   | Description
+----------|-----------------|-------------|---------------------|---------------
 `List_id` | Request body    | Number      | Required            |  ID of the list to fetch subscribers from.
 
 ##### Example Request
@@ -288,14 +282,14 @@ Creates a new subscriber.
 
 ##### Parameters 
 
-Name   | Parameter type   | Data type             | Required/Optional                 | Description
--------|------------------|-----------------------|-----------------------------------|----------------------------
-email  | Request body     | String                | Required                          | The email address of the new susbcriber.
-name   | Request body     | String                | Required                          | The name of the new subscriber. 
-status | Request body     | String                | Required                          | The status of the new subscriber. Can be enabled, disabled or blocklisted. 
-lists   | Request body     | Numbers               | Optional                         | Array of list IDs to subscribe to (marked as `unconfirmed` by default).
-attribs | Request body  | json                    | Optional                         | JSON list containing new subscriber's attributes.
-preconfirm_subscriptions | Request body  | Bool   | Optional                         | If `true`, list subscriptions in the request is marked as `confirmed` and no-optin e-mails are sent for double opt-in lists.
+Name                     | Parameter type   | Data type  | Required/Optional | Description
+-------------------------|------------------|------------|-------------------|----------------------------
+email                    | Request body     | String     | Required          | The email address of the new susbcriber.
+name                     | Request body     | String     | Required          | The name of the new subscriber. 
+status                   | Request body     | String     | Required          | The status of the new subscriber. Can be enabled, disabled or blocklisted. 
+lists                    | Request body     | Numbers    | Optional          | Array of list IDs to subscribe to (marked as `unconfirmed` by default).
+attribs                  | Request body     | json       | Optional          | JSON list containing new subscriber's attributes.
+preconfirm_subscriptions | Request body     | Bool       | Optional          | If `true`, marks subscriptsions as `confirmed` and no-optin e-mails are sent for double opt-in lists.
 
 ##### Example Request
 ```shell
@@ -325,6 +319,67 @@ curl 'http://localhost:9000/api/subscribers' -H 'Content-Type: application/json'
 }
 ```
 
+#### **`PUT`** /api/subscribers/lists/:id
+
+Modify a the subscriber with `:id`'s list memberships.
+
+##### Parameters
+
+Name              | Paramter type    | Data type | Required/Optional  | Description
+------------------|------------------|-----------|--------------------|-------------------------------------------------------
+`id`              | Query parameters | Number    | Required           | The id of the subscriber to be modified.
+`action`          | Request body     | String    | Required           | Wether to `add`, `remove`, or `unsubscribe` the users.
+`target_list_ids` | Request body     | Numbers   | Required           | The ids of the lists to be modified.
+`status`          | Request body     | String    | Required for `add` | `confirmed`, `unconfirmed`, or `unsubscribed` status.
+
+##### Example Request
+
+To subscribe users 1 to lists 4, 5, and 6:
+
+```shell
+curl -u "username:username" -X PUT 'http://localhost:9000/api/subscirbers/lists/:1' \
+--data-raw '{"action": "add", "target_list_ids": [4, 5, 6], "status": "confirmed"}'
+```
+
+##### Example Response
+
+``` json
+{
+    "data": true
+} 
+```
+
+
+#### **`PUT`** /api/subscribers/lists
+
+Modify subscribers list memberships.
+
+##### Parameters
+
+Name              | Paramter type | Data type | Required/Optional  | Description
+------------------|---------------|-----------|--------------------|-------------------------------------------------------
+`ids`             | Request body  | Numbers   | Required           | The ids of the subscribers to be modified.
+`action`          | Request body  | String    | Required           | Wether to `add`, `remove`, or `unsubscribe` the users.
+`target_list_ids` | Request body  | Numbers   | Required           | The ids of the lists to be modified.
+`status`          | Request body  | String    | Required for `add` | `confirmed`, `unconfirmed`, or `unsubscribed` status.
+
+##### Example Request
+
+To subscribe users 1, 2, and 3 to lists 4, 5, and 6:
+
+```shell
+curl -u "username:username" -X PUT 'http://localhost:9000/api/subscirbers/lists' \
+--data-raw '{"ids": [1, 2, 3], "action": "add", "target_list_ids": [4, 5, 6], "status": "confirmed"}'
+```
+
+##### Example Response
+
+``` json
+{
+    "data": true
+} 
+```
+
 
 #### **`PUT`** /api/subscribers/:`id`/blocklist
 Blocklists a single subscriber.
@@ -333,7 +388,7 @@ Blocklists a single subscriber.
 
 Name  | Parameter type | Data type  | Required/Optional | Description 
 ------|----------------|------------|-------------------|-------------
-`id`    | Path parameter | Number     | Required          | The id value of the subscriber you want to blocklist.
+`id`  | Path parameter | Number     | Required          | The id value of the subscriber you want to blocklist.
 
 ##### Example Request 
 
@@ -374,9 +429,9 @@ Deletes a single subscriber.
 
 ##### Parameters 
 
-name    | Parameter type   | Data type   |   Required/Optional    |  Description
---------|------------------|-------------|------------------------|------------------
-`id`      | Path parameter   | Number      | Required               | The id of the subscriber you want to delete.
+Name    | Parameter type   | Data type   | Required/Optional  |  Description
+--------|------------------|-------------|--------------------|------------------
+`id`    | Path parameter   | Number      | Required           | The id of the subscriber you want to delete.
 
 ##### Example  Request 
 
@@ -429,14 +484,9 @@ curl -u "username:username" -X POST 'http://localhost:9000/api/subscribers/query
 >Refer to the [querying and segmentation](/querying-and-segmentation#querying-and-segmenting-subscribers) section for more information on how to query subscribers with SQL expressions.
 
 
-
 ##### Example Response
 ``` json
 {
     "data": true
 }
 ```
-
-
-
-
