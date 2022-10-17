@@ -48,7 +48,7 @@ A campaign is an e-mail (or any other kind of messages) that is sent to one or m
 
 ## Transactional message
 
-A transactional message is an arbitrary message sent to a subscriber using the transactional message API.
+A transactional message is an arbitrary message sent to a subscriber using the transactional message API. For example a welcome e-mail on signing up to a service; an order confirmation e-mail on purchasing an item; a password reset e-mail when a user initiates an online account recovery process.
 
 
 ## Template
