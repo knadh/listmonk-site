@@ -35,7 +35,7 @@ The bounce webhook API can be used to record bounce events with custom scripting
 ```shell
 curl -u 'username:password' -X POST localhost:9000/webhooks/bounce \
 	-H "Content-Type: application/json" \
-	--data '{"email": "user1@mail.com", "campaign_uuid": "9f86b50d-5711-41c8-ab03-bc91c43d711b", "source": "api", "type": "hard", "meta": "{\"additional\": \"info\"}'
+	--data '{"email": "user1@mail.com", "campaign_uuid": "9f86b50d-5711-41c8-ab03-bc91c43d711b", "source": "api", "type": "hard", "meta": "{\"additional\": \"info\"}}'
 
 ```
 
