@@ -294,7 +294,7 @@ preconfirm_subscriptions | Request body     | Bool       | Optional          | I
 ##### Example Request
 ```shell
 curl 'http://localhost:9000/api/subscribers' -H 'Content-Type: application/json' \
-    --data '{"email":"subsriber@domain.com","name":"The Subscriber","status":"enabled","lists":[1],"attribs":{"city":"Bengaluru","projects":3,,"stack":{"languages":["go","python"]}}}'
+    --data '{"email":"subsriber@domain.com","name":"The Subscriber","status":"enabled","lists":[1],"attribs":{"city":"Bengaluru","projects":3,"stack":{"languages":["go","python"]}}}'
 ```
 
 ##### Example Response
