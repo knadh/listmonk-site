@@ -325,7 +325,7 @@ Modify a the subscriber with `:id`'s list memberships.
 
 ##### Parameters
 
-Name              | Paramter type    | Data type | Required/Optional  | Description
+Name              | Parameter type   | Data type | Required/Optional  | Description
 ------------------|------------------|-----------|--------------------|-------------------------------------------------------
 `id`              | Query parameters | Number    | Required           | The id of the subscriber to be modified.
 `action`          | Request body     | String    | Required           | Wether to `add`, `remove`, or `unsubscribe` the users.
@@ -337,7 +337,7 @@ Name              | Paramter type    | Data type | Required/Optional  | Descript
 To subscribe users 1 to lists 4, 5, and 6:
 
 ```shell
-curl -u "username:username" -X PUT 'http://localhost:9000/api/subscribers/lists/:1' \
+curl -u "username:username" -X PUT 'http://localhost:9000/api/subscribers/lists/1' \
 --data-raw '{"action": "add", "target_list_ids": [4, 5, 6], "status": "confirmed"}'
 ```
 
