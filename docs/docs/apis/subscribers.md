@@ -368,7 +368,7 @@ Name              | Paramter type | Data type | Required/Optional  | Description
 To subscribe users 1, 2, and 3 to lists 4, 5, and 6:
 
 ```shell
-curl -u "username:username" -X PUT 'http://localhost:9000/api/subscirbers/lists' \
+curl -u "username:username" -X PUT 'http://localhost:9000/api/subscribers/lists' \
 --data-raw '{"ids": [1, 2, 3], "action": "add", "target_list_ids": [4, 5, 6], "status": "confirmed"}'
 ```
 
