@@ -15,9 +15,11 @@ Send a transactional message to a subscriber using a predefined transactional te
 | `subscriber_email` | String    | Optional | E-mail of the subscriber. Either this or `subscriber_id` should be passed.        |
 | `subscriber_id`    | Number    | Optional | ID of the subscriber. Either this or `subscriber_email` should be passed.         |
 | `template_id`      | Number    | Required | ID of the transactional template to use in the message.                           |
+| `from_email`       | String    | Optional | Optional `from` email. eg: `Company <email@company.com>`                          |
 | `data`             | Map       | Optional | Optional data in `{}` nested map. Available in the template as `{{ .Tx.Data.* }}` |
 | `headers`          | []Map     | Optional | Optional array of mail headers. `[{"key": "value"}, {"key": "value"}]`            |
-| `content_type`     | string    | Optional | `html`, `markdown`, `plain`                                                       |
+| `messenger`        | String    | Optional | Messenger to use to send the message. Default value is `email`.                   |
+| `content_type`     | String    | Optional | `html`, `markdown`, `plain`                                                       |
 
 
 ##### Request
