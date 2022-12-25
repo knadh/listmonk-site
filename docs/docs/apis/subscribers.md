@@ -8,7 +8,6 @@ Method   | Endpoint                                                             
 `GET`    | [/api/subscribers](#get-apisubscriberslist_id)                        | Gets subscribers in one or more lists.
 `GET`    | [/api/subscribers](#get-apisubscribers_1)                             | Gets subscribers filtered by an arbitrary SQL expression.
 `POST`   | [/api/subscribers](#post-apisubscribers)                              | Creates a new subscriber.
-`PUT`    | [/api/subscribers/lists/:`id`](#put-apisubscriberslists_id)           | Modify a subscriber's list memberhips.
 `PUT`    | [/api/subscribers/lists](#put-apisubscriberslists)                    | Modify subscribers' list memberships.
 `PUT`    | /api/subscribers/:`id`                                                | Updates a subscriber by ID.
 `PUT`    | [/api/subscribers/:`id`/blocklist](#put-apisubscribersidblocklist)    | Blocklists a single subscriber.
@@ -317,36 +316,6 @@ curl 'http://localhost:9000/api/subscribers' -H 'Content-Type: application/json'
     "lists": [1]
   }
 }
-```
-
-#### **`PUT`** /api/subscribers/lists/:id
-
-Modify a the subscriber with `:id`'s list memberships.
-
-##### Parameters
-
-Name              | Parameter type   | Data type | Required/Optional  | Description
-------------------|------------------|-----------|--------------------|-------------------------------------------------------
-`id`              | Query parameters | Number    | Required           | The id of the subscriber to be modified.
-`action`          | Request body     | String    | Required           | Wether to `add`, `remove`, or `unsubscribe` the users.
-`target_list_ids` | Request body     | Numbers   | Required           | The ids of the lists to be modified.
-`status`          | Request body     | String    | Required for `add` | `confirmed`, `unconfirmed`, or `unsubscribed` status.
-
-##### Example Request
-
-To subscribe users 1 to lists 4, 5, and 6:
-
-```shell
-curl -u "username:username" -X PUT 'http://localhost:9000/api/subscribers/lists/1' \
---data-raw '{"action": "add", "target_list_ids": [4, 5, 6], "status": "confirmed"}'
-```
-
-##### Example Response
-
-``` json
-{
-    "data": true
-} 
 ```
 
 
