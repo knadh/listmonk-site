@@ -221,9 +221,9 @@ Gets subscribers with an SQL expression.
 ##### Example Request
 ```shell
 curl -X GET 'http://localhost:9000/api/subscribers' \
-    -d 'page=1' \
-    -d 'per_page=100' \
-    -d "query=subscribers.name LIKE 'Test%' AND subscribers.attribs->>'city' = 'Bengaluru'"
+    --url-query 'page=1' \
+    --url-query 'per_page=100' \
+    --url-query "query=subscribers.name LIKE 'Test%' AND subscribers.attribs->>'city' = 'Bengaluru'"
 ```
 
 To skip pagination and retrieve all records, pass `per_page=all`.
