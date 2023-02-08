@@ -43,7 +43,7 @@ There are several template functions and expressions that can be used in campaig
 | `{{ TrackLink "https://link.com" }}` | Takes a URL and generates a tracking URL over it. For use in campaign bodies and templates.                                                                    |
 | `https://link.com@TrackLink`         | Shorthand for `TrackLink`. Eg: `<a href="https://link.com@TrackLink">Link</a>`                                                                       |
 | `{{ TrackView }}`                           | Inserts a single tracking pixel. Should only be used once, ideally in the template footer.                                                                     |
-| `{{ UnsubscribeURL }}`                      | Unsubscription URL. Ideal for use in the template footer.                                                                                                      |
+| `{{ UnsubscribeURL }}`                      | Unsubscription and Manage preferences URL. Ideal for use in the template footer.                                                                                                      |
 | `{{ MessageURL }}`                          | URL to view the hosted version of an e-mail message.                                                                                                           |
 | `{{ OptinURL }}`                            | URL to the double-optin confirmation page.                                                                                                                     |
 | `{{ Safe "<!-- comment -->" }}`             | Add any HTML code as it is.                                                                                                                                   |
