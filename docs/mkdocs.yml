@@ -31,7 +31,7 @@ markdown_extensions:
 extra_css:
   - "static/style.css"
 
-copyright: "Copyright &copy; 2019, Kailash Nadh."
+copyright: "Copyright &copy; 2019-2023, Kailash Nadh."
 
 nav:
   - "Introduction": index.md
