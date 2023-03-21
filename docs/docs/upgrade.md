@@ -12,3 +12,9 @@ Some versions may require changes to the database. These changes or database "mi
 - `docker-compose pull` to pull the latest version from DockerHub.
 - `docker-compose run --rm app ./listmonk --upgrade` to upgrade an existing DB.
 - Run `docker-compose up app db` and visit `http://localhost:9000`.
+
+## Railway
+- Head to your dashboard, and select your Listmonk Porject
+- Select GitHub deployment service
+- In the Deployment tab, head to the latest deployment, click on the three vertical dots to the right, and select "Redeploy"
+- ![Railway Redeploy option](https://user-images.githubusercontent.com/55474996/226517149-6dc512d5-f862-46f7-a57d-5e55b781ff53.png)
