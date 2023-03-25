@@ -229,7 +229,7 @@ curl -X GET 'http://localhost:9000/api/subscribers' \
 To skip pagination and retrieve all records, pass `per_page=all`.
 
 
->Refer to the [querying and segmentation](/querying-and-segmentation#querying-and-segmenting-subscribers) section for more information on how to query subscribers with SQL expressions.
+>Refer to the [querying and segmentation](/docs/querying-and-segmentation#querying-and-segmenting-subscribers) section for more information on how to query subscribers with SQL expressions.
 
 ##### Example Response 
 ```json
