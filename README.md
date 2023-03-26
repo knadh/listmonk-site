@@ -2,7 +2,7 @@
 
 # listmonk site
 
-This repository contains materials for building [listmonk](https://github.com/knadh/listmonk)'s static website and documentation.
+This repository is obsolete. The static site and mkdocs documentation have moved to the main listmonk repository to the `/docs` directory.
 
-- The website is in `site` and is built with hugo (run `hugo serve` to preview)
-- Documentation is in `docs` and is built with mkdocs (run `mkdocs serve` to preview after running `pip install -r requirements.txt`)
+https://github.com/knadh/listmonk/tree/master/docs
+
